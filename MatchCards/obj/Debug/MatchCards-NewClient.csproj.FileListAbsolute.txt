@@ -1,0 +1,14 @@
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards-NewClient.csproj.AssemblyReference.cache
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards-NewClient.csproj.SuggestedBindingRedirects.cache
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards_NewClient.Form1.resources
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards_NewClient.Properties.Resources.resources
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards-NewClient.csproj.GenerateResource.cache
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards-NewClient.csproj.CoreCompileInputs.cache
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\bin\Debug\MatchCards-NewClient.exe.config
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\bin\Debug\MatchCards-NewClient.exe
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\bin\Debug\MatchCards-NewClient.pdb
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\bin\Debug\ReaLTaiizor.dll
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\bin\Debug\ReaLTaiizor.xml
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards-NewClient.csproj.CopyComplete
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards-NewClient.exe
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-NewClient\obj\Debug\MatchCards-NewClient.pdb
