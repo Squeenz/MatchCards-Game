@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientLogin));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.crownTextBox1 = new ReaLTaiizor.Controls.CrownTextBox();
             this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.crownTextBox1 = new ReaLTaiizor.Controls.CrownTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.crownTextBox2 = new ReaLTaiizor.Controls.CrownTextBox();
@@ -55,6 +55,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(187, 58);
             this.panel2.TabIndex = 0;
+            // 
+            // crownTextBox1
+            // 
+            this.crownTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
+            this.crownTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crownTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownTextBox1.Location = new System.Drawing.Point(7, 24);
+            this.crownTextBox1.Name = "crownTextBox1";
+            this.crownTextBox1.Size = new System.Drawing.Size(177, 29);
+            this.crownTextBox1.TabIndex = 1;
             // 
             // usernameLabel
             // 
@@ -79,16 +89,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(398, 231);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // crownTextBox1
-            // 
-            this.crownTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
-            this.crownTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crownTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownTextBox1.Location = new System.Drawing.Point(7, 24);
-            this.crownTextBox1.Name = "crownTextBox1";
-            this.crownTextBox1.Size = new System.Drawing.Size(177, 29);
-            this.crownTextBox1.TabIndex = 1;
             // 
             // tableLayoutPanel2
             // 

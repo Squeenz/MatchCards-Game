@@ -21,5 +21,10 @@ namespace MatchCards_Client
         {
 
         }
+
+        private void cardStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
