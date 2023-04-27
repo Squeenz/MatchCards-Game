@@ -56,9 +56,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.crownLabel13 = new ReaLTaiizor.Controls.CrownLabel();
             this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.crownLabel12 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel13 = new ReaLTaiizor.Controls.CrownLabel();
             this.crownLabel14 = new ReaLTaiizor.Controls.CrownLabel();
             this.materialCard1.SuspendLayout();
             this.materialCard2.SuspendLayout();
@@ -98,7 +98,7 @@
             this.cardStatus.ForeColor = System.Drawing.Color.Black;
             this.cardStatus.Location = new System.Drawing.Point(14, 32);
             this.cardStatus.Name = "cardStatus";
-            this.cardStatus.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus.Size = new System.Drawing.Size(48, 62);
             this.cardStatus.TabIndex = 0;
             this.cardStatus.Text = "?";
             this.cardStatus.Click += new System.EventHandler(this.cardStatus_Click);
@@ -124,7 +124,7 @@
             this.crownLabel1.ForeColor = System.Drawing.Color.Black;
             this.crownLabel1.Location = new System.Drawing.Point(14, 35);
             this.crownLabel1.Name = "crownLabel1";
-            this.crownLabel1.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel1.Size = new System.Drawing.Size(48, 62);
             this.crownLabel1.TabIndex = 1;
             this.crownLabel1.Text = "?";
             // 
@@ -149,7 +149,7 @@
             this.crownLabel2.ForeColor = System.Drawing.Color.Black;
             this.crownLabel2.Location = new System.Drawing.Point(14, 35);
             this.crownLabel2.Name = "crownLabel2";
-            this.crownLabel2.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel2.Size = new System.Drawing.Size(48, 62);
             this.crownLabel2.TabIndex = 1;
             this.crownLabel2.Text = "?";
             // 
@@ -174,7 +174,7 @@
             this.crownLabel3.ForeColor = System.Drawing.Color.Black;
             this.crownLabel3.Location = new System.Drawing.Point(14, 35);
             this.crownLabel3.Name = "crownLabel3";
-            this.crownLabel3.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel3.Size = new System.Drawing.Size(48, 62);
             this.crownLabel3.TabIndex = 1;
             this.crownLabel3.Text = "?";
             // 
@@ -199,7 +199,7 @@
             this.crownLabel4.ForeColor = System.Drawing.Color.Black;
             this.crownLabel4.Location = new System.Drawing.Point(14, 35);
             this.crownLabel4.Name = "crownLabel4";
-            this.crownLabel4.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel4.Size = new System.Drawing.Size(48, 62);
             this.crownLabel4.TabIndex = 1;
             this.crownLabel4.Text = "?";
             // 
@@ -224,7 +224,7 @@
             this.crownLabel5.ForeColor = System.Drawing.Color.Black;
             this.crownLabel5.Location = new System.Drawing.Point(14, 35);
             this.crownLabel5.Name = "crownLabel5";
-            this.crownLabel5.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel5.Size = new System.Drawing.Size(48, 62);
             this.crownLabel5.TabIndex = 1;
             this.crownLabel5.Text = "?";
             // 
@@ -249,7 +249,7 @@
             this.crownLabel6.ForeColor = System.Drawing.Color.Black;
             this.crownLabel6.Location = new System.Drawing.Point(14, 35);
             this.crownLabel6.Name = "crownLabel6";
-            this.crownLabel6.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel6.Size = new System.Drawing.Size(48, 62);
             this.crownLabel6.TabIndex = 1;
             this.crownLabel6.Text = "?";
             // 
@@ -274,7 +274,7 @@
             this.crownLabel7.ForeColor = System.Drawing.Color.Black;
             this.crownLabel7.Location = new System.Drawing.Point(14, 35);
             this.crownLabel7.Name = "crownLabel7";
-            this.crownLabel7.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel7.Size = new System.Drawing.Size(48, 62);
             this.crownLabel7.TabIndex = 1;
             this.crownLabel7.Text = "?";
             // 
@@ -299,7 +299,7 @@
             this.crownLabel11.ForeColor = System.Drawing.Color.Black;
             this.crownLabel11.Location = new System.Drawing.Point(14, 35);
             this.crownLabel11.Name = "crownLabel11";
-            this.crownLabel11.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel11.Size = new System.Drawing.Size(48, 62);
             this.crownLabel11.TabIndex = 1;
             this.crownLabel11.Text = "?";
             // 
@@ -324,7 +324,7 @@
             this.crownLabel10.ForeColor = System.Drawing.Color.Black;
             this.crownLabel10.Location = new System.Drawing.Point(14, 35);
             this.crownLabel10.Name = "crownLabel10";
-            this.crownLabel10.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel10.Size = new System.Drawing.Size(48, 62);
             this.crownLabel10.TabIndex = 1;
             this.crownLabel10.Text = "?";
             // 
@@ -349,7 +349,7 @@
             this.crownLabel9.ForeColor = System.Drawing.Color.Black;
             this.crownLabel9.Location = new System.Drawing.Point(14, 35);
             this.crownLabel9.Name = "crownLabel9";
-            this.crownLabel9.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel9.Size = new System.Drawing.Size(48, 62);
             this.crownLabel9.TabIndex = 1;
             this.crownLabel9.Text = "?";
             // 
@@ -374,7 +374,7 @@
             this.crownLabel8.ForeColor = System.Drawing.Color.Black;
             this.crownLabel8.Location = new System.Drawing.Point(14, 35);
             this.crownLabel8.Name = "crownLabel8";
-            this.crownLabel8.Size = new System.Drawing.Size(39, 50);
+            this.crownLabel8.Size = new System.Drawing.Size(48, 62);
             this.crownLabel8.TabIndex = 1;
             this.crownLabel8.Text = "?";
             // 
@@ -392,9 +392,9 @@
             this.panel1.Controls.Add(this.materialCard6);
             this.panel1.Controls.Add(this.materialCard3);
             this.panel1.Controls.Add(this.materialCard13);
-            this.panel1.Location = new System.Drawing.Point(3, 119);
+            this.panel1.Location = new System.Drawing.Point(3, 81);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(326, 402);
+            this.panel1.Size = new System.Drawing.Size(326, 398);
             this.panel1.TabIndex = 13;
             // 
             // tableLayoutPanel1
@@ -406,16 +406,16 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 39);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.13741F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.86259F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(332, 524);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.18257F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.81743F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(332, 482);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel2.Controls.Add(this.crownLabel13, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.usernameLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.crownLabel12, 1, 0);
@@ -423,10 +423,20 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 100);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.58823F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.41177F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 68);
             this.tableLayoutPanel2.TabIndex = 14;
+            // 
+            // crownLabel13
+            // 
+            this.crownLabel13.AutoSize = true;
+            this.crownLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel13.Location = new System.Drawing.Point(3, 31);
+            this.crownLabel13.Name = "crownLabel13";
+            this.crownLabel13.Size = new System.Drawing.Size(157, 28);
+            this.crownLabel13.TabIndex = 3;
+            this.crownLabel13.Text = "PLAYER1 SCORE: ";
             // 
             // usernameLabel
             // 
@@ -434,7 +444,7 @@
             this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.usernameLabel.Location = new System.Drawing.Point(3, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(107, 21);
+            this.usernameLabel.Size = new System.Drawing.Size(131, 28);
             this.usernameLabel.TabIndex = 1;
             this.usernameLabel.Text = "YOUR SCORE:";
             // 
@@ -442,37 +452,27 @@
             // 
             this.crownLabel12.AutoSize = true;
             this.crownLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel12.Location = new System.Drawing.Point(150, 0);
+            this.crownLabel12.Location = new System.Drawing.Point(170, 0);
             this.crownLabel12.Name = "crownLabel12";
-            this.crownLabel12.Size = new System.Drawing.Size(46, 21);
+            this.crownLabel12.Size = new System.Drawing.Size(56, 28);
             this.crownLabel12.TabIndex = 2;
             this.crownLabel12.Text = "9000";
-            // 
-            // crownLabel13
-            // 
-            this.crownLabel13.AutoSize = true;
-            this.crownLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel13.Location = new System.Drawing.Point(3, 50);
-            this.crownLabel13.Name = "crownLabel13";
-            this.crownLabel13.Size = new System.Drawing.Size(132, 21);
-            this.crownLabel13.TabIndex = 3;
-            this.crownLabel13.Text = "PLAYER1 SCORE: ";
             // 
             // crownLabel14
             // 
             this.crownLabel14.AutoSize = true;
             this.crownLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel14.Location = new System.Drawing.Point(150, 50);
+            this.crownLabel14.Location = new System.Drawing.Point(170, 31);
             this.crownLabel14.Name = "crownLabel14";
-            this.crownLabel14.Size = new System.Drawing.Size(46, 21);
+            this.crownLabel14.Size = new System.Drawing.Size(56, 28);
             this.crownLabel14.TabIndex = 4;
             this.crownLabel14.Text = "9000";
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 568);
+            this.ClientSize = new System.Drawing.Size(342, 528);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Image = ((System.Drawing.Image)(resources.GetObject("$this.Image")));
             this.MaximizeBox = false;
