@@ -96,10 +96,11 @@
             // 
             this.serverIPText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
             this.serverIPText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.serverIPText.Enabled = false;
             this.serverIPText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.serverIPText.Location = new System.Drawing.Point(79, 1);
             this.serverIPText.Name = "serverIPText";
-            this.serverIPText.Size = new System.Drawing.Size(121, 34);
+            this.serverIPText.Size = new System.Drawing.Size(121, 29);
             this.serverIPText.TabIndex = 2;
             this.serverIPText.Text = "127.0.0.1";
             // 
@@ -125,10 +126,11 @@
             // 
             this.serverPortText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
             this.serverPortText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.serverPortText.Enabled = false;
             this.serverPortText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.serverPortText.Location = new System.Drawing.Point(79, 1);
             this.serverPortText.Name = "serverPortText";
-            this.serverPortText.Size = new System.Drawing.Size(121, 34);
+            this.serverPortText.Size = new System.Drawing.Size(121, 29);
             this.serverPortText.TabIndex = 2;
             this.serverPortText.Text = "8910";
             // 
@@ -177,6 +179,7 @@
             this.serverLogTextBox.Multiline = true;
             this.serverLogTextBox.Name = "serverLogTextBox";
             this.serverLogTextBox.ReadOnly = true;
+            this.serverLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.serverLogTextBox.Size = new System.Drawing.Size(338, 271);
             this.serverLogTextBox.TabIndex = 12;
             this.serverLogTextBox.TextChanged += new System.EventHandler(this.serverLogTextBox_TextChanged);
@@ -321,10 +324,10 @@
             // userList
             // 
             this.userList.FormattingEnabled = true;
-            this.userList.ItemHeight = 28;
+            this.userList.ItemHeight = 21;
             this.userList.Location = new System.Drawing.Point(3, 0);
             this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(296, 200);
+            this.userList.Size = new System.Drawing.Size(296, 193);
             this.userList.TabIndex = 0;
             this.userList.SelectedIndexChanged += new System.EventHandler(this.userList_SelectedIndexChanged);
             // 
@@ -368,13 +371,13 @@
             this.serverChatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.serverChatBox.Location = new System.Drawing.Point(6, 8);
             this.serverChatBox.Name = "serverChatBox";
-            this.serverChatBox.Size = new System.Drawing.Size(271, 34);
+            this.serverChatBox.Size = new System.Drawing.Size(271, 29);
             this.serverChatBox.TabIndex = 4;
             this.serverChatBox.TextChanged += new System.EventHandler(this.serverChatBox_TextChanged);
             // 
             // Server
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 506);
             this.Controls.Add(this.panel5);

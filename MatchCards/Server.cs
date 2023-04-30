@@ -45,7 +45,13 @@ namespace MatchCards_Server
 
         void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            serverLogTextBox.Text += $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}";
+            serverLogTextBox.Text += $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
+
+            for (int i = 0; i < userList.Items.Count; i++)
+            {
+                string port = userList.Items[i].ToString();
+                server.Send(port, $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}");
+            }
         }
 
         private void ServerLabel_Click(object sender, EventArgs e)
@@ -56,7 +62,7 @@ namespace MatchCards_Server
         private void startServerButton_Click(object sender, EventArgs e)
         {
             server.Start();
-            serverLogTextBox.Text += $"Starting....{Environment.NewLine}";
+            serverLogTextBox.Text += $"Starting.... {Environment.NewLine}";
             startServerButton.Enabled = false;
             stopServerButton.Enabled = true;
         }

@@ -40,12 +40,12 @@ namespace MatchCards_Client
 
         private void Connected(object sender, ConnectionEventArgs e)
         {
-            clientChatBox.Text += $"Server {e.IpPort} connected {Environment.NewLine}";
+            clientChatBox.Text += $"Server: {e.IpPort} connected {Environment.NewLine}";
         }
 
         private void Disconnected(object sender, ConnectionEventArgs e)
         {
-            clientChatBox.Text += $"Server {e.IpPort} disconnected {Environment.NewLine}";
+            clientChatBox.Text += $"Server: {e.IpPort} disconnected {Environment.NewLine}";
         }
 
         private void startServerButton_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace MatchCards_Client
                 if (!string.IsNullOrEmpty(lobbyTextBox.Text))
                 {
                     client.Send(lobbyTextBox.Text);
-                    clientChatBox.Text += $"Me: {lobbyTextBox.Text}{Environment.NewLine}";
+                    //clientChatBox.Text += $"Me: {lobbyTextBox.Text}{Environment.NewLine}";
                     lobbyTextBox.Text = string.Empty;
                 }
             }
@@ -63,7 +63,7 @@ namespace MatchCards_Client
 
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            clientChatBox.Text += $"Server {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}";
+            clientChatBox.Text += $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
         }
     }
 }
