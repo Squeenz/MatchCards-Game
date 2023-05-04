@@ -45,12 +45,21 @@ namespace MatchCards_Server
 
         void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            serverLogTextBox.Text += $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
+            string serverOnly = "!!";
 
-            for (int i = 0; i < userList.Items.Count; i++)
+            MessageBox.Show(Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(0, 2));
+
+            if (Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(0, 2) != serverOnly)
             {
-                string port = userList.Items[i].ToString();
-                server.Send(port, $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}");
+                for (int i = 0; i < userList.Items.Count; i++)
+                {
+                    string port = userList.Items[i].ToString();
+                    server.Send(port, $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}");
+                }
+            }
+            else
+            {
+                serverLogTextBox.Text += $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
             }
         }
 

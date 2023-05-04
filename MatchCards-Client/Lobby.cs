@@ -65,5 +65,14 @@ namespace MatchCards_Client
         {
             clientChatBox.Text += $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
         }
+
+        private void lostAcceptButton1_Click(object sender, EventArgs e)
+        {
+            if (client.IsConnected) 
+            {
+                MessageBox.Show("You are in the queue, waiting for people");
+                client.Send($"!! is in the queue");
+            }
+        }
     }
 }
