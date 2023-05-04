@@ -52,10 +52,9 @@ namespace MatchCards_Client
         {
             if (client.IsConnected)
             {
-                if (!string.IsNullOrEmpty(lobbyTextBox.Text))
+                if (!string.IsNullOrEmpty(lobbyTextBox.Text.Substring(2)))
                 {
                     client.Send(lobbyTextBox.Text);
-                    //clientChatBox.Text += $"Me: {lobbyTextBox.Text}{Environment.NewLine}";
                     lobbyTextBox.Text = string.Empty;
                 }
             }
@@ -71,7 +70,7 @@ namespace MatchCards_Client
             if (client.IsConnected) 
             {
                 MessageBox.Show("You are in the queue, waiting for people");
-                client.Send($"!! is in the queue");
+                client.Send($"!!is in the queue");
             }
         }
     }

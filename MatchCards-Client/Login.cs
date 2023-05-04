@@ -26,5 +26,12 @@ namespace MatchCards_ClientLogin
         {
 
         }
+
+        private void lostAcceptButton1_Click(object sender, EventArgs e)
+        {
+            var register = new ClientRegister();
+            register.Show();
+            this.Hide();
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace MatchCards_Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Lobby());
+            Application.Run(new ClientLogin());
         }
     }
 }

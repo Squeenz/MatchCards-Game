@@ -11,17 +11,21 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
+using System.Data.SQLite;
 
 namespace MatchCards_Server
 {
     public partial class Server : LostForm
     {
+        private SQLiteConnection conn;
+
         public Server()
         {
             InitializeComponent();
+            conn = new SQLiteConnection("Data Source=MatchCards.db;Version=3;");
         }
 
-        SimpleTcpServer server;
+        private SimpleTcpServer server;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -31,13 +35,13 @@ namespace MatchCards_Server
             server.Events.DataReceived += DataReceived;
         }
 
-        void ClientConnected(object sender, ConnectionEventArgs e)
+        void ClientConnected(object sender, SuperSimpleTcp.ConnectionEventArgs e)
         {
             serverLogTextBox.Text += $"[{e.IpPort}] client connected.... { Environment.NewLine}";
             userList.Items.Add(e.IpPort);
         }
 
-        void ClientDisconnected(object sender, ConnectionEventArgs e)
+        void ClientDisconnected(object sender, SuperSimpleTcp.ConnectionEventArgs e)
         {
             serverLogTextBox.Text += $"[{e.IpPort}] client disconnected: {e.Reason}{Environment.NewLine}";
             userList.Items.Remove(e.IpPort);
@@ -45,21 +49,40 @@ namespace MatchCards_Server
 
         void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            string serverOnly = "!!";
+            var data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
+            var normalCmdSyntax = data.Substring(0, 2);
+            var dbCmdSyntax = data.Substring(0, 3);
 
-            MessageBox.Show(Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(0, 2));
-
-            if (Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(0, 2) != serverOnly)
+            if (normalCmdSyntax != "!!")
             {
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
                     string port = userList.Items[i].ToString();
-                    server.Send(port, $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}");
+                    server.Send(port, $"[{e.IpPort}]: {data}");
                 }
             }
-            else
+            else if (normalCmdSyntax == "!!")
             {
-                serverLogTextBox.Text += $"[{e.IpPort}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
+                serverLogTextBox.Text += $"[{e.IpPort}]: {data}{Environment.NewLine}";
+            }
+
+            if (dbCmdSyntax == "!!C")
+            {
+                //"!!C [4] YOGI : 123"
+
+                int userLength = Int32.Parse(data.Substring(6, 6));
+                string userName = data.Substring(9, 4);
+
+                serverLogTextBox.Text += $"User {userName} created{Environment.NewLine}";
+
+                /*
+                conn.Open();
+                string sql = "INSERT INTO Users (UserName) VALUES (@userName)";
+                SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@userName", userName);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                */
             }
         }
 

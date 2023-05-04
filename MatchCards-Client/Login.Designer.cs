@@ -166,6 +166,7 @@
             this.lostAcceptButton1.Size = new System.Drawing.Size(187, 32);
             this.lostAcceptButton1.TabIndex = 4;
             this.lostAcceptButton1.Text = "REGISTER";
+            this.lostAcceptButton1.Click += new System.EventHandler(this.lostAcceptButton1_Click);
             // 
             // hopePictureBox1
             // 

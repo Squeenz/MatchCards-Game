@@ -65,7 +65,7 @@
             this.chatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.chatLabel.Location = new System.Drawing.Point(3, 0);
             this.chatLabel.Name = "chatLabel";
-            this.chatLabel.Size = new System.Drawing.Size(60, 28);
+            this.chatLabel.Size = new System.Drawing.Size(48, 21);
             this.chatLabel.TabIndex = 0;
             this.chatLabel.Text = "CHAT";
             // 
@@ -90,7 +90,7 @@
             this.sendMessage.Image = null;
             this.sendMessage.Location = new System.Drawing.Point(332, 201);
             this.sendMessage.Name = "sendMessage";
-            this.sendMessage.Size = new System.Drawing.Size(50, 34);
+            this.sendMessage.Size = new System.Drawing.Size(50, 29);
             this.sendMessage.TabIndex = 3;
             this.sendMessage.Text = "SEND";
             this.sendMessage.Click += new System.EventHandler(this.startServerButton_Click);
@@ -102,7 +102,7 @@
             this.lobbyTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.lobbyTextBox.Location = new System.Drawing.Point(7, 201);
             this.lobbyTextBox.Name = "lobbyTextBox";
-            this.lobbyTextBox.Size = new System.Drawing.Size(319, 34);
+            this.lobbyTextBox.Size = new System.Drawing.Size(319, 29);
             this.lobbyTextBox.TabIndex = 2;
             // 
             // clientChatBox
@@ -135,7 +135,7 @@
             this.crownLabel2.ForeColor = System.Drawing.Color.White;
             this.crownLabel2.Location = new System.Drawing.Point(93, 35);
             this.crownLabel2.Name = "crownLabel2";
-            this.crownLabel2.Size = new System.Drawing.Size(79, 28);
+            this.crownLabel2.Size = new System.Drawing.Size(64, 21);
             this.crownLabel2.TabIndex = 18;
             this.crownLabel2.Text = "POINTS";
             // 
@@ -145,7 +145,7 @@
             this.crownLabel1.ForeColor = System.Drawing.Color.White;
             this.crownLabel1.Location = new System.Drawing.Point(6, 35);
             this.crownLabel1.Name = "crownLabel1";
-            this.crownLabel1.Size = new System.Drawing.Size(68, 28);
+            this.crownLabel1.Size = new System.Drawing.Size(54, 21);
             this.crownLabel1.TabIndex = 17;
             this.crownLabel1.Text = "NAME";
             // 
@@ -175,7 +175,7 @@
             this.crownLabel4.ForeColor = System.Drawing.Color.White;
             this.crownLabel4.Location = new System.Drawing.Point(90, 0);
             this.crownLabel4.Name = "crownLabel4";
-            this.crownLabel4.Size = new System.Drawing.Size(56, 25);
+            this.crownLabel4.Size = new System.Drawing.Size(46, 21);
             this.crownLabel4.TabIndex = 19;
             this.crownLabel4.Text = "2000";
             // 
@@ -185,7 +185,7 @@
             this.crownLabel3.ForeColor = System.Drawing.Color.White;
             this.crownLabel3.Location = new System.Drawing.Point(3, 0);
             this.crownLabel3.Name = "crownLabel3";
-            this.crownLabel3.Size = new System.Drawing.Size(76, 25);
+            this.crownLabel3.Size = new System.Drawing.Size(62, 21);
             this.crownLabel3.TabIndex = 18;
             this.crownLabel3.Text = "Player1";
             // 
@@ -195,7 +195,7 @@
             this.crownLabel6.ForeColor = System.Drawing.Color.White;
             this.crownLabel6.Location = new System.Drawing.Point(90, 25);
             this.crownLabel6.Name = "crownLabel6";
-            this.crownLabel6.Size = new System.Drawing.Size(56, 24);
+            this.crownLabel6.Size = new System.Drawing.Size(46, 21);
             this.crownLabel6.TabIndex = 21;
             this.crownLabel6.Text = "1950";
             // 
@@ -205,7 +205,7 @@
             this.crownLabel5.ForeColor = System.Drawing.Color.White;
             this.crownLabel5.Location = new System.Drawing.Point(3, 25);
             this.crownLabel5.Name = "crownLabel5";
-            this.crownLabel5.Size = new System.Drawing.Size(76, 24);
+            this.crownLabel5.Size = new System.Drawing.Size(62, 21);
             this.crownLabel5.TabIndex = 20;
             this.crownLabel5.Text = "Player2";
             // 
@@ -215,7 +215,7 @@
             this.crownLabel8.ForeColor = System.Drawing.Color.White;
             this.crownLabel8.Location = new System.Drawing.Point(90, 49);
             this.crownLabel8.Name = "crownLabel8";
-            this.crownLabel8.Size = new System.Drawing.Size(45, 28);
+            this.crownLabel8.Size = new System.Drawing.Size(37, 21);
             this.crownLabel8.TabIndex = 23;
             this.crownLabel8.Text = "500";
             // 
@@ -225,7 +225,7 @@
             this.crownLabel7.ForeColor = System.Drawing.Color.White;
             this.crownLabel7.Location = new System.Drawing.Point(3, 49);
             this.crownLabel7.Name = "crownLabel7";
-            this.crownLabel7.Size = new System.Drawing.Size(76, 28);
+            this.crownLabel7.Size = new System.Drawing.Size(62, 21);
             this.crownLabel7.TabIndex = 22;
             this.crownLabel7.Text = "Player3";
             // 
@@ -288,7 +288,7 @@
             this.crownLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.crownLabel9.Location = new System.Drawing.Point(4, 279);
             this.crownLabel9.Name = "crownLabel9";
-            this.crownLabel9.Size = new System.Drawing.Size(98, 28);
+            this.crownLabel9.Size = new System.Drawing.Size(78, 21);
             this.crownLabel9.TabIndex = 20;
             this.crownLabel9.Text = "MATCHES";
             // 
@@ -307,7 +307,7 @@
             this.crownLabel10.ForeColor = System.Drawing.Color.White;
             this.crownLabel10.Location = new System.Drawing.Point(178, 3);
             this.crownLabel10.Name = "crownLabel10";
-            this.crownLabel10.Size = new System.Drawing.Size(56, 28);
+            this.crownLabel10.Size = new System.Drawing.Size(46, 21);
             this.crownLabel10.TabIndex = 20;
             this.crownLabel10.Text = "2000";
             // 
@@ -323,7 +323,7 @@
             // 
             // Lobby
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 459);
             this.Controls.Add(this.panel2);
