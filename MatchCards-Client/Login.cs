@@ -21,8 +21,6 @@ namespace MatchCards_ClientLogin
             InitializeComponent();
         }
 
-        SimpleTcpClient client;
-
         private void CrownLabel2_Click(object sender, EventArgs e)
         {
 
@@ -35,7 +33,6 @@ namespace MatchCards_ClientLogin
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
         {
-            client.Disconnect();
             var register = new ClientRegister();
             register.Show();
             this.Hide();
@@ -43,16 +40,30 @@ namespace MatchCards_ClientLogin
 
         private void ClientLogin_Load(object sender, EventArgs e)
         {
-            client = new SimpleTcpClient("127.0.0.1:8910");
-            client.Events.DataReceived += DataReceived;
+            if (TcpClientSingleton.Client == null)
+            {
+                TcpClientSingleton.Client = new SimpleTcpClient("127.0.0.1:8910");
+                TcpClientSingleton.Client.Events.DataReceived += DataReceived;
 
-            try
-            {
-                client.Connect();
+                try
+                {
+                    TcpClientSingleton.Client.Connect();
+                }
+                catch
+                {
+                    MessageBox.Show("No Connection to server");
+                }
             }
-            catch
+            else if (!TcpClientSingleton.Client.IsConnected)
             {
-                MessageBox.Show("No Connection to server");
+                try
+                {
+                    TcpClientSingleton.Client.Connect();
+                }
+                catch
+                {
+                    MessageBox.Show("No Connection to server");
+                }
             }
         }
 
@@ -62,9 +73,7 @@ namespace MatchCards_ClientLogin
 
             if (data == "VALID")
             {
-                var lobby = new Lobby();
-                lobby.Show();
-                this.Hide();
+                LobbyChange();
             }
             else if (data == "INVALID")
             {
@@ -72,12 +81,26 @@ namespace MatchCards_ClientLogin
             }
         }
 
+        private void LobbyChange()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(LobbyChange));
+                return;
+            }
+
+            var lobby = new Lobby();
+            lobby.Show();
+            this.Hide();
+        }
+
+
         private void startServerButton_Click(object sender, EventArgs e)
         {
             string username = usernameBox.Text;
             string password = passwordBox.Text;
 
-            client.Send($"!L [{username.Count()}] {username} : {password}");
+            TcpClientSingleton.Client.Send($"!L [{username.Count()}] {username} : {password}");
         }
     }
 }

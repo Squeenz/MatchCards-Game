@@ -19,23 +19,11 @@ namespace MatchCards_Client
             InitializeComponent();
         }
 
-        SimpleTcpClient client;
-
         private void Game_Load(object sender, EventArgs e)
         {
-            client = new SimpleTcpClient("127.0.0.1:8910");
-            client.Events.Connected += Connected;
-            client.Events.Disconnected += Disconnected;
-            client.Events.DataReceived += DataReceived;
-
-            try 
-            {
-                client.Connect();
-            }
-            catch
-            {
-                MessageBox.Show("No Connection to server");
-            }
+            TcpClientSingleton.Client.Events.Connected += Connected;
+            TcpClientSingleton.Client.Events.Disconnected += Disconnected;
+            TcpClientSingleton.Client.Events.DataReceived += DataReceived;
         }
 
         private void Connected(object sender, ConnectionEventArgs e)
@@ -50,11 +38,11 @@ namespace MatchCards_Client
 
         private void startServerButton_Click(object sender, EventArgs e)
         {
-            if (client.IsConnected)
+            if (TcpClientSingleton.Client.IsConnected)
             {
-                if (!string.IsNullOrEmpty(lobbyTextBox.Text.Substring(2)))
+                if (!string.IsNullOrEmpty(lobbyTextBox.Text))
                 {
-                    client.Send(lobbyTextBox.Text);
+                    TcpClientSingleton.Client.Send("--" + lobbyTextBox.Text);
                     lobbyTextBox.Text = string.Empty;
                 }
             }
@@ -62,15 +50,19 @@ namespace MatchCards_Client
 
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            clientChatBox.Text += $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
+            clientChatBox.Text += $"Server: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
         }
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
         {
-            if (client.IsConnected) 
+           if (TcpClientSingleton.Client.IsConnected) 
             {
                 MessageBox.Show("You are in the queue, waiting for people");
-                client.Send($"!!is in the queue");
+                TcpClientSingleton.Client.Send($"!!is in the queue");
+            }
+            else 
+            {
+                MessageBox.Show("No connection to server");
             }
         }
     }

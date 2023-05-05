@@ -53,17 +53,17 @@ namespace MatchCards_Server
             var data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
             var cmdSyntax = data.Substring(0, 2);
 
-            if (cmdSyntax != "!!")
+            if (cmdSyntax == "!!")
+            {
+                serverLogTextBox.Text += $"[{e.IpPort}]: {data}{Environment.NewLine}";
+            }
+            else if (cmdSyntax == "--")
             {
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
                     string port = userList.Items[i].ToString();
-                    server.Send(port, $"[{e.IpPort}]: {data}");
+                    server.Send(port, $"[{e.IpPort}]: {data.Substring(2)}");
                 }
-            }
-            else
-            {
-                serverLogTextBox.Text += $"[{e.IpPort}]: {data}{Environment.NewLine}";
             }
 
             int userLength = int.Parse(data.Substring(4, 1));

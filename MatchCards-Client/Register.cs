@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MatchCards_Client;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
 
@@ -18,8 +19,6 @@ namespace MatchCards_ClientLogin
         {
             InitializeComponent();
         }
-
-        SimpleTcpClient client;
 
         private void CrownLabel2_Click(object sender, EventArgs e)
         {
@@ -33,16 +32,7 @@ namespace MatchCards_ClientLogin
 
         private void ClientRegister_Load(object sender, EventArgs e)
         {
-            client = new SimpleTcpClient("127.0.0.1:8910");
-
-            try
-            {
-                client.Connect();
-            }
-            catch
-            {
-                MessageBox.Show("No Connection to server");
-            }
+        
         }
 
         private void tableLayoutPanel1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -54,7 +44,6 @@ namespace MatchCards_ClientLogin
         {
             var login = new ClientLogin();
             login.Show();
-            client.Disconnect();
             this.Hide();
         }
 
@@ -86,7 +75,16 @@ namespace MatchCards_ClientLogin
 
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                client.Send($"!C [{username.Count()}] {username} : {password}"); 
+
+                if (TcpClientSingleton.Client.IsConnected)
+                {
+                    TcpClientSingleton.Client.Send($"!C [{username.Count()}] {username} : {password}");
+                }
+                else
+                {
+                    MessageBox.Show("No connection to server");
+                }
+               
                 //client.Send($"!!L {username} : {password}");
             }
 
