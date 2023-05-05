@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientLogin));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.crownTextBox1 = new ReaLTaiizor.Controls.CrownTextBox();
+            this.usernameBox = new ReaLTaiizor.Controls.CrownTextBox();
             this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.crownTextBox2 = new ReaLTaiizor.Controls.CrownTextBox();
+            this.passwordBox = new ReaLTaiizor.Controls.CrownTextBox();
             this.passwordLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.startServerButton = new ReaLTaiizor.Controls.LostAcceptButton();
             this.lostAcceptButton1 = new ReaLTaiizor.Controls.LostAcceptButton();
@@ -49,22 +49,22 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.crownTextBox1);
+            this.panel2.Controls.Add(this.usernameBox);
             this.panel2.Controls.Add(this.usernameLabel);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(187, 58);
             this.panel2.TabIndex = 0;
             // 
-            // crownTextBox1
+            // usernameBox
             // 
-            this.crownTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
-            this.crownTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crownTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownTextBox1.Location = new System.Drawing.Point(7, 24);
-            this.crownTextBox1.Name = "crownTextBox1";
-            this.crownTextBox1.Size = new System.Drawing.Size(177, 29);
-            this.crownTextBox1.TabIndex = 1;
+            this.usernameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
+            this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.usernameBox.Location = new System.Drawing.Point(7, 24);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(177, 29);
+            this.usernameBox.TabIndex = 1;
             // 
             // usernameLabel
             // 
@@ -111,23 +111,23 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.crownTextBox2);
+            this.panel1.Controls.Add(this.passwordBox);
             this.panel1.Controls.Add(this.passwordLabel);
             this.panel1.Location = new System.Drawing.Point(3, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(187, 57);
+            this.panel1.Size = new System.Drawing.Size(187, 59);
             this.panel1.TabIndex = 2;
             // 
-            // crownTextBox2
+            // passwordBox
             // 
-            this.crownTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
-            this.crownTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crownTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownTextBox2.Location = new System.Drawing.Point(7, 24);
-            this.crownTextBox2.Name = "crownTextBox2";
-            this.crownTextBox2.PasswordChar = '*';
-            this.crownTextBox2.Size = new System.Drawing.Size(177, 29);
-            this.crownTextBox2.TabIndex = 1;
+            this.passwordBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
+            this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passwordBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.passwordBox.Location = new System.Drawing.Point(7, 24);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.PasswordChar = '*';
+            this.passwordBox.Size = new System.Drawing.Size(177, 29);
+            this.passwordBox.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -152,6 +152,7 @@
             this.startServerButton.Size = new System.Drawing.Size(187, 31);
             this.startServerButton.TabIndex = 3;
             this.startServerButton.Text = "LOGIN";
+            this.startServerButton.Click += new System.EventHandler(this.startServerButton_Click);
             // 
             // lostAcceptButton1
             // 
@@ -175,7 +176,7 @@
             this.hopePictureBox1.Location = new System.Drawing.Point(3, 3);
             this.hopePictureBox1.Name = "hopePictureBox1";
             this.hopePictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            this.hopePictureBox1.Size = new System.Drawing.Size(193, 225);
+            this.hopePictureBox1.Size = new System.Drawing.Size(193, 222);
             this.hopePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.hopePictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.hopePictureBox1.TabIndex = 2;
@@ -192,6 +193,7 @@
             this.MaximizeBox = false;
             this.Name = "ClientLogin";
             this.Text = "CLIENT - LOGIN";
+            this.Load += new System.EventHandler(this.ClientLogin_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -207,10 +209,10 @@
         private System.Windows.Forms.Panel panel2;
         private ReaLTaiizor.Controls.CrownLabel usernameLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private ReaLTaiizor.Controls.CrownTextBox crownTextBox1;
+        private ReaLTaiizor.Controls.CrownTextBox usernameBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
-        private ReaLTaiizor.Controls.CrownTextBox crownTextBox2;
+        private ReaLTaiizor.Controls.CrownTextBox passwordBox;
         private ReaLTaiizor.Controls.CrownLabel passwordLabel;
         private ReaLTaiizor.Controls.LostAcceptButton startServerButton;
         private ReaLTaiizor.Controls.LostAcceptButton lostAcceptButton1;

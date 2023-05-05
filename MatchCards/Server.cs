@@ -12,6 +12,7 @@ using Microsoft.VisualBasic;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
 using System.Data.SQLite;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MatchCards_Server
 {
@@ -50,10 +51,9 @@ namespace MatchCards_Server
         void DataReceived(object sender, DataReceivedEventArgs e)
         {
             var data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
-            var normalCmdSyntax = data.Substring(0, 2);
-            var dbCmdSyntax = data.Substring(0, 3);
+            var cmdSyntax = data.Substring(0, 2);
 
-            if (normalCmdSyntax != "!!")
+            if (cmdSyntax != "!!")
             {
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
@@ -61,28 +61,58 @@ namespace MatchCards_Server
                     server.Send(port, $"[{e.IpPort}]: {data}");
                 }
             }
-            else if (normalCmdSyntax == "!!")
+            else
             {
                 serverLogTextBox.Text += $"[{e.IpPort}]: {data}{Environment.NewLine}";
             }
 
-            if (dbCmdSyntax == "!!C")
+            int userLength = int.Parse(data.Substring(4, 1));
+            string username = data.Substring(7, userLength);
+            string password = data.Substring(7 + userLength + 3);
+
+            if (cmdSyntax == "!C")
             {
-                //"!!C [4] YOGI : 123"
+                CreateNewUser(username, password);
+            }
+            else if (cmdSyntax == "!L")
+            {
+                CheckLoginInformation(e.IpPort, username, password);
+            }
+        }
 
-                int userLength = Int32.Parse(data.Substring(6, 6));
-                string userName = data.Substring(9, 4);
+        private void CreateNewUser(string username, string password)
+        {
+            conn.Open();
+            string sql = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@Password", password);
+            cmd.ExecuteNonQuery();
+            conn.Close();
 
-                serverLogTextBox.Text += $"User {userName} created{Environment.NewLine}";
+            serverLogTextBox.Text += $"A new user {username} created{Environment.NewLine}";
+        }
 
-                /*
-                conn.Open();
-                string sql = "INSERT INTO Users (UserName) VALUES (@userName)";
-                SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@userName", userName);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                */
+        private void CheckLoginInformation(string ipPort, string username, string password)
+        {
+            conn.Open();
+
+            string sql = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@Password", password);
+
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+            conn.Close();
+
+            if (count > 0)
+            {
+                server.Send(ipPort, "VALID");
+            }
+            else
+            {
+                server.Send(ipPort, "INVALID");
             }
         }
 

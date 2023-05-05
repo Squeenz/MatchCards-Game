@@ -50,11 +50,17 @@ namespace MatchCards_ClientLogin
 
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void closeThisAndGoBack()
         {
             var login = new ClientLogin();
             login.Show();
+            client.Disconnect();
             this.Hide();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            closeThisAndGoBack();
         }
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
@@ -62,19 +68,17 @@ namespace MatchCards_ClientLogin
             string username = "";
             string password = "";
 
+            //Add a check to see if the username already exists in the database
             if (!string.IsNullOrEmpty(usernameBox.Text))
             {
                 username = usernameBox.Text;
             }
 
-            if (passwordOneBox.Text != passwordTwoBox.Text)
+            if (passwordOneBox.Text != passwordTwoBox.Text || passwordTwoBox.Text != passwordOneBox.Text)
             {
                 passwordLabel1.Visible = true;
             }
-            else if (passwordTwoBox.Text != passwordOneBox.Text)
-            {
-                passwordLabel2.Visible = true;
-            }
+            //Need to encrypt the password
             else
             {
                 password = passwordOneBox.Text;
@@ -82,10 +86,11 @@ namespace MatchCards_ClientLogin
 
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                client.Send($"C [{username.Count()}] {username} : {password}");
+                client.Send($"!C [{username.Count()}] {username} : {password}"); 
                 //client.Send($"!!L {username} : {password}");
-                //client.Send($"!!U {username} ");
             }
+
+            closeThisAndGoBack();
         }
     }
 }

@@ -36,6 +36,7 @@
             this.hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.passwordLabel1 = new System.Windows.Forms.Label();
             this.passwordOneBox = new ReaLTaiizor.Controls.CrownTextBox();
             this.passwordLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,8 +45,7 @@
             this.lostAcceptButton1 = new ReaLTaiizor.Controls.LostAcceptButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.backButton = new ReaLTaiizor.Controls.LostAcceptButton();
-            this.passwordLabel2 = new System.Windows.Forms.Label();
-            this.passwordLabel1 = new System.Windows.Forms.Label();
+            this.userErrorLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hopePictureBox1)).BeginInit();
@@ -57,6 +57,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.userErrorLabel);
             this.panel2.Controls.Add(this.usernameBox);
             this.panel2.Controls.Add(this.usernameLabel);
             this.panel2.Location = new System.Drawing.Point(3, 3);
@@ -141,6 +142,18 @@
             this.panel1.Size = new System.Drawing.Size(187, 57);
             this.panel1.TabIndex = 2;
             // 
+            // passwordLabel1
+            // 
+            this.passwordLabel1.AutoSize = true;
+            this.passwordLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel1.ForeColor = System.Drawing.Color.Red;
+            this.passwordLabel1.Location = new System.Drawing.Point(103, 6);
+            this.passwordLabel1.Name = "passwordLabel1";
+            this.passwordLabel1.Size = new System.Drawing.Size(81, 13);
+            this.passwordLabel1.TabIndex = 7;
+            this.passwordLabel1.Text = "Doesn\'t match";
+            this.passwordLabel1.Visible = false;
+            // 
             // passwordOneBox
             // 
             this.passwordOneBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
@@ -164,7 +177,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.passwordLabel2);
             this.panel3.Controls.Add(this.passwordTwoBox);
             this.panel3.Controls.Add(this.crownLabel1);
             this.panel3.Location = new System.Drawing.Point(3, 156);
@@ -237,29 +249,17 @@
             this.backButton.Text = "BACK";
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // passwordLabel2
+            // userErrorLabel
             // 
-            this.passwordLabel2.AutoSize = true;
-            this.passwordLabel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel2.ForeColor = System.Drawing.Color.Red;
-            this.passwordLabel2.Location = new System.Drawing.Point(103, 6);
-            this.passwordLabel2.Name = "passwordLabel2";
-            this.passwordLabel2.Size = new System.Drawing.Size(81, 13);
-            this.passwordLabel2.TabIndex = 6;
-            this.passwordLabel2.Text = "Doesn\'t match";
-            this.passwordLabel2.Visible = false;
-            // 
-            // passwordLabel1
-            // 
-            this.passwordLabel1.AutoSize = true;
-            this.passwordLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel1.ForeColor = System.Drawing.Color.Red;
-            this.passwordLabel1.Location = new System.Drawing.Point(103, 6);
-            this.passwordLabel1.Name = "passwordLabel1";
-            this.passwordLabel1.Size = new System.Drawing.Size(81, 13);
-            this.passwordLabel1.TabIndex = 7;
-            this.passwordLabel1.Text = "Doesn\'t match";
-            this.passwordLabel1.Visible = false;
+            this.userErrorLabel.AutoSize = true;
+            this.userErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.userErrorLabel.Location = new System.Drawing.Point(108, 6);
+            this.userErrorLabel.Name = "userErrorLabel";
+            this.userErrorLabel.Size = new System.Drawing.Size(76, 13);
+            this.userErrorLabel.TabIndex = 8;
+            this.userErrorLabel.Text = "Already exists";
+            this.userErrorLabel.Visible = false;
             // 
             // ClientRegister
             // 
@@ -304,7 +304,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private ReaLTaiizor.Controls.LostAcceptButton backButton;
         private System.Windows.Forms.Label passwordLabel1;
-        private System.Windows.Forms.Label passwordLabel2;
+        private System.Windows.Forms.Label userErrorLabel;
     }
 }
 
