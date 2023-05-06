@@ -108,11 +108,11 @@ namespace MatchCards_Server
 
             if (count > 0)
             {
-                server.Send(ipPort, "VALID");
+                server.Send(ipPort, $"[{username.Count()}] : {username} : VALID");
             }
             else
             {
-                server.Send(ipPort, "INVALID");
+                server.Send(ipPort, $"[{username.Count()}] : {username} : INVALID");
             }
         }
 

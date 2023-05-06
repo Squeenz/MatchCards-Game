@@ -70,12 +70,16 @@ namespace MatchCards_ClientLogin
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
             var data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
+            int userLenght = int.Parse(data.Substring(1, 1));   
+            var username = data.Substring(6, userLenght);
+            var isValid = data.Substring(6 + userLenght + 3);
 
-            if (data == "VALID")
+            if (isValid == "VALID")
             {
                 LobbyChange();
+                User.Username = username;
             }
-            else if (data == "INVALID")
+            else if (isValid == "INVALID")
             {
                 MessageBox.Show("Incorrect login information");
             }

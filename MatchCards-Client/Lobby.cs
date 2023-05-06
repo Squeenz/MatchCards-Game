@@ -50,7 +50,7 @@ namespace MatchCards_Client
 
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            clientChatBox.Text += $"Server: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
+            clientChatBox.Text += $"[{User.Username}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
         }
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
