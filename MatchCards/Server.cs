@@ -62,7 +62,9 @@ namespace MatchCards_Server
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
                     string port = userList.Items[i].ToString();
-                    server.Send(port, $"[{e.IpPort}]: {data.Substring(2)}");
+                    server.Send(port, $"[{e.IpPort}] {data.Substring(2)}");
+
+                    //server.Send(port, $"[{e.IpPort}]: {data.Substring(2)}");
                 }
             }
 

@@ -42,7 +42,7 @@ namespace MatchCards_Client
             {
                 if (!string.IsNullOrEmpty(lobbyTextBox.Text))
                 {
-                    TcpClientSingleton.Client.Send("--" + lobbyTextBox.Text);
+                    TcpClientSingleton.Client.Send($"-- [{User.Username}]: " + lobbyTextBox.Text);
                     lobbyTextBox.Text = string.Empty;
                 }
             }
@@ -50,7 +50,7 @@ namespace MatchCards_Client
 
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            clientChatBox.Text += $"[{User.Username}]: {Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count)}{Environment.NewLine}";
+            clientChatBox.Text += $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
         }
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
