@@ -56,16 +56,18 @@ namespace MatchCards_Client
 
             if (cmdSyntax == "!0")
             {
+                MessageBox.Show(cmdSyntax);
+                MessageBox.Show(username);
                 onlineUserList.Items.Add(username);
-                lobbyTextBox.Text += $"Syntax: {cmdSyntax}{Environment.NewLine}";
-                lobbyTextBox.Text += $"Username: {username}{Environment.NewLine}";
             }
-            else if (cmdSyntax == "!F")
+            else if (cmdSyntax == "!F") 
             {
                 onlineUserList.Items.Remove(username);
             }
-
-            clientChatBox.Text += data;
+            else
+            {
+                clientChatBox.Text += data;
+            }
         }
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)

@@ -70,8 +70,6 @@ namespace MatchCards_Server
             string username = data.Substring(7, userLength);
             string password = data.Substring(7 + userLength + 3);
 
-            MessageBox.Show(cmdSyntax);
-
             if (cmdSyntax == "!C")
             {
                 CreateNewUser(username, password);
@@ -79,11 +77,6 @@ namespace MatchCards_Server
             else if (cmdSyntax == "!L")
             {
                 CheckLoginInformation(e.IpPort, username, password);
-            }
-            else if (cmdSyntax == "!O") 
-            {
-                UpdateLoginStatus(e.IpPort, username, false);
-                serverLogTextBox.Text += $"sent !O {username} {Environment.NewLine}";
             }
         }
 
@@ -111,14 +104,12 @@ namespace MatchCards_Server
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
-                server.Send(ipPort, $"!O {username}");
-
-                //for (int i = 0; i < userList.Items.Count; i++)
-                //{
-                //    string port = userList.Items[i].ToString();
-                //    serverLogTextBox.Text += $"sent !O {username} {Environment.NewLine}";
-                //    server.Send(ipPort, $"!O {username}");
-                //}
+                for (int i = 0; i < userList.Items.Count; i++)
+                {
+                    string port = userList.Items[i].ToString();
+                    serverLogTextBox.Text += username;
+                    server.Send(port, $"!O {username}");
+                }
             }
             else 
             {
@@ -128,6 +119,12 @@ namespace MatchCards_Server
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                for (int i = 0; i < userList.Items.Count; i++)
+                {
+                    string port = userList.Items[i].ToString();
+                    server.Send(port, $"!F {username}");
+                }
             }
         }
 
@@ -147,6 +144,7 @@ namespace MatchCards_Server
             if (count > 0)
             {
                 server.Send(ipPort, $"[{username.Count()}] : {username} : VALID");
+                UpdateLoginStatus(ipPort, username, false);
             }
             else
             {
