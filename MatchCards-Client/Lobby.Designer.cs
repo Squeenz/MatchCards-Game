@@ -35,15 +35,7 @@
             this.lobbyTextBox = new ReaLTaiizor.Controls.CrownTextBox();
             this.clientChatBox = new ReaLTaiizor.Controls.CrownTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.crownLabel2 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel1 = new ReaLTaiizor.Controls.CrownLabel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.crownLabel4 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel3 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel6 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel5 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel8 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel7 = new ReaLTaiizor.Controls.CrownLabel();
+            this.onlineUserList = new System.Windows.Forms.ListBox();
             this.lostLabel4 = new ReaLTaiizor.Controls.LostLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lostAcceptButton2 = new ReaLTaiizor.Controls.LostAcceptButton();
@@ -54,7 +46,6 @@
             this.lostLabel1 = new ReaLTaiizor.Controls.LostLabel();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -120,122 +111,29 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.crownLabel2);
-            this.panel5.Controls.Add(this.crownLabel1);
-            this.panel5.Controls.Add(this.tableLayoutPanel1);
+            this.panel5.Controls.Add(this.onlineUserList);
             this.panel5.Controls.Add(this.lostLabel4);
-            this.panel5.Location = new System.Drawing.Point(402, 96);
+            this.panel5.Location = new System.Drawing.Point(402, 74);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(227, 180);
+            this.panel5.Size = new System.Drawing.Size(227, 202);
             this.panel5.TabIndex = 18;
             // 
-            // crownLabel2
+            // onlineUserList
             // 
-            this.crownLabel2.AutoSize = true;
-            this.crownLabel2.ForeColor = System.Drawing.Color.White;
-            this.crownLabel2.Location = new System.Drawing.Point(93, 35);
-            this.crownLabel2.Name = "crownLabel2";
-            this.crownLabel2.Size = new System.Drawing.Size(64, 21);
-            this.crownLabel2.TabIndex = 18;
-            this.crownLabel2.Text = "POINTS";
-            // 
-            // crownLabel1
-            // 
-            this.crownLabel1.AutoSize = true;
-            this.crownLabel1.ForeColor = System.Drawing.Color.White;
-            this.crownLabel1.Location = new System.Drawing.Point(6, 35);
-            this.crownLabel1.Name = "crownLabel1";
-            this.crownLabel1.Size = new System.Drawing.Size(54, 21);
-            this.crownLabel1.TabIndex = 17;
-            this.crownLabel1.Text = "NAME";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.50954F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 122F));
-            this.tableLayoutPanel1.Controls.Add(this.crownLabel4, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.crownLabel3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.crownLabel6, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.crownLabel5, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.crownLabel8, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.crownLabel7, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 59);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.02041F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.97959F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(209, 87);
-            this.tableLayoutPanel1.TabIndex = 16;
-            // 
-            // crownLabel4
-            // 
-            this.crownLabel4.AutoSize = true;
-            this.crownLabel4.ForeColor = System.Drawing.Color.White;
-            this.crownLabel4.Location = new System.Drawing.Point(90, 0);
-            this.crownLabel4.Name = "crownLabel4";
-            this.crownLabel4.Size = new System.Drawing.Size(46, 21);
-            this.crownLabel4.TabIndex = 19;
-            this.crownLabel4.Text = "2000";
-            // 
-            // crownLabel3
-            // 
-            this.crownLabel3.AutoSize = true;
-            this.crownLabel3.ForeColor = System.Drawing.Color.White;
-            this.crownLabel3.Location = new System.Drawing.Point(3, 0);
-            this.crownLabel3.Name = "crownLabel3";
-            this.crownLabel3.Size = new System.Drawing.Size(62, 21);
-            this.crownLabel3.TabIndex = 18;
-            this.crownLabel3.Text = "Player1";
-            // 
-            // crownLabel6
-            // 
-            this.crownLabel6.AutoSize = true;
-            this.crownLabel6.ForeColor = System.Drawing.Color.White;
-            this.crownLabel6.Location = new System.Drawing.Point(90, 25);
-            this.crownLabel6.Name = "crownLabel6";
-            this.crownLabel6.Size = new System.Drawing.Size(46, 21);
-            this.crownLabel6.TabIndex = 21;
-            this.crownLabel6.Text = "1950";
-            // 
-            // crownLabel5
-            // 
-            this.crownLabel5.AutoSize = true;
-            this.crownLabel5.ForeColor = System.Drawing.Color.White;
-            this.crownLabel5.Location = new System.Drawing.Point(3, 25);
-            this.crownLabel5.Name = "crownLabel5";
-            this.crownLabel5.Size = new System.Drawing.Size(62, 21);
-            this.crownLabel5.TabIndex = 20;
-            this.crownLabel5.Text = "Player2";
-            // 
-            // crownLabel8
-            // 
-            this.crownLabel8.AutoSize = true;
-            this.crownLabel8.ForeColor = System.Drawing.Color.White;
-            this.crownLabel8.Location = new System.Drawing.Point(90, 49);
-            this.crownLabel8.Name = "crownLabel8";
-            this.crownLabel8.Size = new System.Drawing.Size(37, 21);
-            this.crownLabel8.TabIndex = 23;
-            this.crownLabel8.Text = "500";
-            // 
-            // crownLabel7
-            // 
-            this.crownLabel7.AutoSize = true;
-            this.crownLabel7.ForeColor = System.Drawing.Color.White;
-            this.crownLabel7.Location = new System.Drawing.Point(3, 49);
-            this.crownLabel7.Name = "crownLabel7";
-            this.crownLabel7.Size = new System.Drawing.Size(62, 21);
-            this.crownLabel7.TabIndex = 22;
-            this.crownLabel7.Text = "Player3";
+            this.onlineUserList.FormattingEnabled = true;
+            this.onlineUserList.ItemHeight = 21;
+            this.onlineUserList.Location = new System.Drawing.Point(10, 37);
+            this.onlineUserList.Name = "onlineUserList";
+            this.onlineUserList.Size = new System.Drawing.Size(205, 151);
+            this.onlineUserList.TabIndex = 19;
             // 
             // lostLabel4
             // 
             this.lostLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.lostLabel4.ForeColor = System.Drawing.Color.White;
-            this.lostLabel4.Location = new System.Drawing.Point(3, 5);
+            this.lostLabel4.Location = new System.Drawing.Point(10, 6);
             this.lostLabel4.Name = "lostLabel4";
-            this.lostLabel4.Size = new System.Drawing.Size(221, 27);
+            this.lostLabel4.Size = new System.Drawing.Size(205, 25);
             this.lostLabel4.TabIndex = 15;
             this.lostLabel4.Text = "ONLINE PLAYERS";
             // 
@@ -298,7 +196,7 @@
             this.panel2.Controls.Add(this.lostLabel1);
             this.panel2.Location = new System.Drawing.Point(402, 39);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 51);
+            this.panel2.Size = new System.Drawing.Size(227, 29);
             this.panel2.TabIndex = 19;
             // 
             // crownLabel10
@@ -317,7 +215,7 @@
             this.lostLabel1.ForeColor = System.Drawing.Color.White;
             this.lostLabel1.Location = new System.Drawing.Point(3, 3);
             this.lostLabel1.Name = "lostLabel1";
-            this.lostLabel1.Size = new System.Drawing.Size(146, 45);
+            this.lostLabel1.Size = new System.Drawing.Size(146, 21);
             this.lostLabel1.TabIndex = 15;
             this.lostLabel1.Text = "YOUR POINTS";
             // 
@@ -340,9 +238,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -359,16 +254,7 @@
         private ReaLTaiizor.Controls.CrownTextBox clientChatBox;
         private ReaLTaiizor.Controls.LostAcceptButton sendMessage;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ReaLTaiizor.Controls.LostLabel lostLabel4;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel2;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel1;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel4;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel3;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel6;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel5;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel8;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private ReaLTaiizor.Controls.LostAcceptButton lostAcceptButton2;
         private ReaLTaiizor.Controls.LostAcceptButton lostAcceptButton1;
@@ -376,6 +262,7 @@
         private System.Windows.Forms.Panel panel2;
         private ReaLTaiizor.Controls.LostLabel lostLabel1;
         private ReaLTaiizor.Controls.CrownLabel crownLabel10;
+        private System.Windows.Forms.ListBox onlineUserList;
     }
 }
 

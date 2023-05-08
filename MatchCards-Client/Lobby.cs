@@ -50,7 +50,22 @@ namespace MatchCards_Client
 
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
-            clientChatBox.Text += $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
+            var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
+            string cmdSyntax = data.Substring(0, 2);
+            string username = data.Substring(3);
+
+            if (cmdSyntax == "!0")
+            {
+                onlineUserList.Items.Add(username);
+                lobbyTextBox.Text += $"Syntax: {cmdSyntax}{Environment.NewLine}";
+                lobbyTextBox.Text += $"Username: {username}{Environment.NewLine}";
+            }
+            else if (cmdSyntax == "!F")
+            {
+                onlineUserList.Items.Remove(username);
+            }
+
+            clientChatBox.Text += data;
         }
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
@@ -64,6 +79,11 @@ namespace MatchCards_Client
             {
                 MessageBox.Show("No connection to server");
             }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

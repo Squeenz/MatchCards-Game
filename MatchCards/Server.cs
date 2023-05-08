@@ -63,14 +63,14 @@ namespace MatchCards_Server
                 {
                     string port = userList.Items[i].ToString();
                     server.Send(port, $"[{e.IpPort}] {data.Substring(2)}");
-
-                    //server.Send(port, $"[{e.IpPort}]: {data.Substring(2)}");
                 }
             }
 
             int userLength = int.Parse(data.Substring(4, 1));
             string username = data.Substring(7, userLength);
             string password = data.Substring(7 + userLength + 3);
+
+            MessageBox.Show(cmdSyntax);
 
             if (cmdSyntax == "!C")
             {
@@ -79,6 +79,11 @@ namespace MatchCards_Server
             else if (cmdSyntax == "!L")
             {
                 CheckLoginInformation(e.IpPort, username, password);
+            }
+            else if (cmdSyntax == "!O") 
+            {
+                UpdateLoginStatus(e.IpPort, username, false);
+                serverLogTextBox.Text += $"sent !O {username} {Environment.NewLine}";
             }
         }
 
@@ -93,6 +98,37 @@ namespace MatchCards_Server
             conn.Close();
 
             serverLogTextBox.Text += $"A new user {username} created{Environment.NewLine}";
+        }
+
+        private void UpdateLoginStatus(string ipPort, string username, bool status) 
+        {
+            if (status == true)
+            {
+                conn.Open();
+                string sql = "UPDATE Users SET Online = 1 WHERE Username = @Username";
+                SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                server.Send(ipPort, $"!O {username}");
+
+                //for (int i = 0; i < userList.Items.Count; i++)
+                //{
+                //    string port = userList.Items[i].ToString();
+                //    serverLogTextBox.Text += $"sent !O {username} {Environment.NewLine}";
+                //    server.Send(ipPort, $"!O {username}");
+                //}
+            }
+            else 
+            {
+                conn.Open();
+                string sql = "UPDATE Users SET Online = 0 WHERE Username = @Username";
+                SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         private void CheckLoginInformation(string ipPort, string username, string password)
