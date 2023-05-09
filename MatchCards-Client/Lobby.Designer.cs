@@ -121,6 +121,7 @@
             // onlineUserList
             // 
             this.onlineUserList.FormattingEnabled = true;
+            this.onlineUserList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.onlineUserList.ItemHeight = 21;
             this.onlineUserList.Location = new System.Drawing.Point(10, 37);
             this.onlineUserList.Name = "onlineUserList";

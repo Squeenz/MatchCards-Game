@@ -13,6 +13,7 @@ using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
 using System.Data.SQLite;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Reflection;
 
 namespace MatchCards_Server
 {
@@ -93,7 +94,25 @@ namespace MatchCards_Server
             serverLogTextBox.Text += $"A new user {username} created{Environment.NewLine}";
         }
 
-        private void UpdateLoginStatus(string ipPort, string username, bool status) 
+        private List<string> GetOnlineUsers() 
+        {
+            conn.Open();
+            string sql = "SELECT Username FROM Users WHERE Online = 1";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            List<string> onlineUsers = new List<string>();
+            while (reader.Read())
+            {
+                onlineUsers.Add(reader.GetString(0));
+            }
+
+            conn.Close();
+
+            return onlineUsers;
+        }
+
+        private async void UpdateLoginStatus(string ipPort, string username, bool status) 
         {
             if (status == true)
             {
@@ -104,11 +123,16 @@ namespace MatchCards_Server
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
+                await Task.Delay(1000); // Wait for 1 second asynchronously
+                
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
                     string port = userList.Items[i].ToString();
-                    serverLogTextBox.Text += username;
-                    server.Send(port, $"!O {username}");
+                    List<string> onlineUsers = GetOnlineUsers();
+
+                    string onlineUsersString = String.Join(", ", onlineUsers);
+                    server.Send(port, $"[{ipPort}]: !O {onlineUsersString}");
+          
                 }
             }
             else 
@@ -144,7 +168,7 @@ namespace MatchCards_Server
             if (count > 0)
             {
                 server.Send(ipPort, $"[{username.Count()}] : {username} : VALID");
-                UpdateLoginStatus(ipPort, username, false);
+                UpdateLoginStatus(ipPort, username, true);
             }
             else
             {
@@ -188,7 +212,7 @@ namespace MatchCards_Server
             {
                 if (!string.IsNullOrEmpty(serverChatBox.Text) && userList.SelectedItem != null) 
                 {
-                    server.Send(userList.SelectedItem.ToString(), serverChatBox.Text);
+                    server.Send(userList.SelectedItem.ToString(), $"[{userList.SelectedItem.ToString()}]: [Server]: {serverChatBox.Text}");
                     serverLogTextBox.Text += $"Server: {serverChatBox.Text}{Environment.NewLine}";
                     serverChatBox.Text = string.Empty;
                 }

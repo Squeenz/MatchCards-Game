@@ -21,19 +21,7 @@ namespace MatchCards_Client
 
         private void Game_Load(object sender, EventArgs e)
         {
-            TcpClientSingleton.Client.Events.Connected += Connected;
-            TcpClientSingleton.Client.Events.Disconnected += Disconnected;
             TcpClientSingleton.Client.Events.DataReceived += DataReceived;
-        }
-
-        private void Connected(object sender, ConnectionEventArgs e)
-        {
-            clientChatBox.Text += $"Server: {e.IpPort} connected {Environment.NewLine}";
-        }
-
-        private void Disconnected(object sender, ConnectionEventArgs e)
-        {
-            clientChatBox.Text += $"Server: {e.IpPort} disconnected {Environment.NewLine}";
         }
 
         private void startServerButton_Click(object sender, EventArgs e)
@@ -52,18 +40,28 @@ namespace MatchCards_Client
         {
             var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
             string cmdSyntax = data.Substring(0, 2);
-            string username = data.Substring(3);
+            string usernameList = data.Substring(3);
 
-            if (cmdSyntax == "!0")
+            if (cmdSyntax == "!O")
             {
-                MessageBox.Show(cmdSyntax);
-                MessageBox.Show(username);
-                onlineUserList.Items.Add(username);
+                if (onlineUserList.Items.Count > 1) 
+                {
+                    onlineUserList.Items.Clear();
+                }
+
+                string[] OnlinePlayerNames = usernameList.Split(',');
+                List<string> OnlinePlayers = new List<string>(OnlinePlayerNames);
+
+                for (int i = 0; i < OnlinePlayers.Count(); i++) 
+                {
+                    onlineUserList.Items.Add(OnlinePlayers.ElementAt(i).Trim());
+                }
             }
             else if (cmdSyntax == "!F") 
             {
-                onlineUserList.Items.Remove(username);
+                //onlineUserList.Items.Remove(username);
             }
+
             else
             {
                 clientChatBox.Text += data;
