@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,7 +41,7 @@ namespace MatchCards_Client
         {
             var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
             string cmdSyntax = data.Substring(0, 2);
-            string usernameList = data.Substring(3);
+            string usernameListOrSingleUser = data.Substring(3);
 
             if (cmdSyntax == "!O")
             {
@@ -49,7 +50,7 @@ namespace MatchCards_Client
                     onlineUserList.Items.Clear();
                 }
 
-                string[] OnlinePlayerNames = usernameList.Split(',');
+                string[] OnlinePlayerNames = usernameListOrSingleUser.Split(',');
                 List<string> OnlinePlayers = new List<string>(OnlinePlayerNames);
 
                 for (int i = 0; i < OnlinePlayers.Count(); i++) 
@@ -59,7 +60,7 @@ namespace MatchCards_Client
             }
             else if (cmdSyntax == "!F") 
             {
-                //onlineUserList.Items.Remove(username);
+                onlineUserList.Items.Remove(usernameListOrSingleUser);
             }
 
             else
@@ -84,6 +85,13 @@ namespace MatchCards_Client
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        protected override async void OnFormClosing(FormClosingEventArgs e)
+        {
+            TcpClientSingleton.Client.Send($"!F [{User.Username.Length}] {User.Username}");
+
+            Application.Exit();
         }
     }
 }

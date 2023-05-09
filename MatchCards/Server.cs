@@ -71,6 +71,8 @@ namespace MatchCards_Server
             string username = data.Substring(7, userLength);
             string password = data.Substring(7 + userLength + 3);
 
+            MessageBox.Show(data);
+
             if (cmdSyntax == "!C")
             {
                 CreateNewUser(username, password);
@@ -78,6 +80,10 @@ namespace MatchCards_Server
             else if (cmdSyntax == "!L")
             {
                 CheckLoginInformation(e.IpPort, username, password);
+            }
+            else if (cmdSyntax == "!F")
+            {   
+                UpdateLoginStatus(e.IpPort, username, false);
             }
         }
 
@@ -147,7 +153,7 @@ namespace MatchCards_Server
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
                     string port = userList.Items[i].ToString();
-                    server.Send(port, $"!F {username}");
+                    server.Send(port, $"[{ipPort}]: !F {username}");
                 }
             }
         }
