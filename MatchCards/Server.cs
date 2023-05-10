@@ -166,14 +166,12 @@ namespace MatchCards_Server
         private void CheckLoginInformation(string ipPort, string username, string password)
         {
             conn.Open();
-
             string sql = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
             SQLiteCommand cmd = new SQLiteCommand(sql, conn);
             cmd.Parameters.AddWithValue("@Username", username);
             cmd.Parameters.AddWithValue("@Password", password);
 
             int count = Convert.ToInt32(cmd.ExecuteScalar());
-
             conn.Close();
 
             if (count > 0)

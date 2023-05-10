@@ -192,6 +192,7 @@
             this.Image = ((System.Drawing.Image)(resources.GetObject("$this.Image")));
             this.MaximizeBox = false;
             this.Name = "ClientLogin";
+            this.Sizable = false;
             this.Text = "CLIENT - LOGIN";
             this.Load += new System.EventHandler(this.ClientLogin_Load);
             this.panel2.ResumeLayout(false);

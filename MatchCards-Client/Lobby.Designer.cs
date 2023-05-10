@@ -44,10 +44,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.crownLabel10 = new ReaLTaiizor.Controls.CrownLabel();
             this.lostLabel1 = new ReaLTaiizor.Controls.LostLabel();
+            this.welcomeLabel = new ReaLTaiizor.Controls.CrownLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // chatLabel
@@ -66,9 +70,9 @@
             this.panel1.Controls.Add(this.lobbyTextBox);
             this.panel1.Controls.Add(this.clientChatBox);
             this.panel1.Controls.Add(this.chatLabel);
-            this.panel1.Location = new System.Drawing.Point(5, 39);
+            this.panel1.Location = new System.Drawing.Point(8, 36);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(391, 237);
+            this.panel1.Size = new System.Drawing.Size(391, 267);
             this.panel1.TabIndex = 1;
             // 
             // sendMessage
@@ -79,7 +83,7 @@
             this.sendMessage.ForeColor = System.Drawing.Color.White;
             this.sendMessage.HoverColor = System.Drawing.Color.Green;
             this.sendMessage.Image = null;
-            this.sendMessage.Location = new System.Drawing.Point(332, 201);
+            this.sendMessage.Location = new System.Drawing.Point(332, 224);
             this.sendMessage.Name = "sendMessage";
             this.sendMessage.Size = new System.Drawing.Size(50, 29);
             this.sendMessage.TabIndex = 3;
@@ -91,7 +95,7 @@
             this.lobbyTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
             this.lobbyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lobbyTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.lobbyTextBox.Location = new System.Drawing.Point(7, 201);
+            this.lobbyTextBox.Location = new System.Drawing.Point(7, 224);
             this.lobbyTextBox.Name = "lobbyTextBox";
             this.lobbyTextBox.Size = new System.Drawing.Size(319, 29);
             this.lobbyTextBox.TabIndex = 2;
@@ -105,15 +109,15 @@
             this.clientChatBox.Multiline = true;
             this.clientChatBox.Name = "clientChatBox";
             this.clientChatBox.ReadOnly = true;
-            this.clientChatBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.clientChatBox.Size = new System.Drawing.Size(375, 171);
+            this.clientChatBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.clientChatBox.Size = new System.Drawing.Size(375, 194);
             this.clientChatBox.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.onlineUserList);
             this.panel5.Controls.Add(this.lostLabel4);
-            this.panel5.Location = new System.Drawing.Point(402, 74);
+            this.panel5.Location = new System.Drawing.Point(405, 101);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(227, 202);
             this.panel5.TabIndex = 18;
@@ -144,7 +148,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.lostAcceptButton2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lostAcceptButton1, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 303);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 330);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -165,6 +169,7 @@
             this.lostAcceptButton2.Size = new System.Drawing.Size(618, 67);
             this.lostAcceptButton2.TabIndex = 5;
             this.lostAcceptButton2.Text = "UNRANKED";
+            this.lostAcceptButton2.Click += new System.EventHandler(this.lostAcceptButton2_Click);
             // 
             // lostAcceptButton1
             // 
@@ -185,7 +190,7 @@
             // 
             this.crownLabel9.AutoSize = true;
             this.crownLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel9.Location = new System.Drawing.Point(4, 279);
+            this.crownLabel9.Location = new System.Drawing.Point(7, 306);
             this.crownLabel9.Name = "crownLabel9";
             this.crownLabel9.Size = new System.Drawing.Size(78, 21);
             this.crownLabel9.TabIndex = 20;
@@ -195,7 +200,7 @@
             // 
             this.panel2.Controls.Add(this.crownLabel10);
             this.panel2.Controls.Add(this.lostLabel1);
-            this.panel2.Location = new System.Drawing.Point(402, 39);
+            this.panel2.Location = new System.Drawing.Point(405, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(227, 29);
             this.panel2.TabIndex = 19;
@@ -214,17 +219,47 @@
             // 
             this.lostLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.lostLabel1.ForeColor = System.Drawing.Color.White;
-            this.lostLabel1.Location = new System.Drawing.Point(3, 3);
+            this.lostLabel1.Location = new System.Drawing.Point(7, 5);
             this.lostLabel1.Name = "lostLabel1";
-            this.lostLabel1.Size = new System.Drawing.Size(146, 21);
+            this.lostLabel1.Size = new System.Drawing.Size(107, 21);
             this.lostLabel1.TabIndex = 15;
             this.lostLabel1.Text = "YOUR POINTS";
+            // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.welcomeLabel.Location = new System.Drawing.Point(3, 3);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(77, 21);
+            this.welcomeLabel.TabIndex = 21;
+            this.welcomeLabel.Text = "Welcome,";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.usernameLabel);
+            this.panel3.Controls.Add(this.welcomeLabel);
+            this.panel3.Location = new System.Drawing.Point(405, 36);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(227, 27);
+            this.panel3.TabIndex = 22;
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.ForeColor = System.Drawing.Color.Yellow;
+            this.usernameLabel.Location = new System.Drawing.Point(76, 3);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(81, 21);
+            this.usernameLabel.TabIndex = 22;
+            this.usernameLabel.Text = "Username";
             // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 459);
+            this.ClientSize = new System.Drawing.Size(637, 503);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.crownLabel9);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -242,6 +277,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +301,9 @@
         private ReaLTaiizor.Controls.LostLabel lostLabel1;
         private ReaLTaiizor.Controls.CrownLabel crownLabel10;
         private System.Windows.Forms.ListBox onlineUserList;
+        private ReaLTaiizor.Controls.CrownLabel welcomeLabel;
+        private System.Windows.Forms.Panel panel3;
+        private ReaLTaiizor.Controls.CrownLabel usernameLabel;
     }
 }
 

@@ -29,450 +29,595 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
-            this.materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
-            this.cardStatus = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard2 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel1 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard3 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel2 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard10 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel3 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard4 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel4 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard5 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel5 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard6 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel6 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard7 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel7 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard11 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel11 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard13 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel10 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard15 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel9 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard16 = new ReaLTaiizor.Controls.MaterialCard();
-            this.crownLabel8 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card1 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus0 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card2 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus1 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card3 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus2 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card4 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus3 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card8 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus7 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card7 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus6 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card6 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus5 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card5 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus4 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card12 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus11 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card11 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus10 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card10 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus9 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card9 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus8 = new ReaLTaiizor.Controls.CrownLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.card13 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus12 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card14 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus13 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card15 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus14 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card16 = new ReaLTaiizor.Controls.MaterialCard();
+            this.cardStatus15 = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.crownLabel13 = new ReaLTaiizor.Controls.CrownLabel();
-            this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.crownLabel12 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel14 = new ReaLTaiizor.Controls.CrownLabel();
-            this.materialCard1.SuspendLayout();
-            this.materialCard2.SuspendLayout();
-            this.materialCard3.SuspendLayout();
-            this.materialCard10.SuspendLayout();
-            this.materialCard4.SuspendLayout();
-            this.materialCard5.SuspendLayout();
-            this.materialCard6.SuspendLayout();
-            this.materialCard7.SuspendLayout();
-            this.materialCard11.SuspendLayout();
-            this.materialCard13.SuspendLayout();
-            this.materialCard15.SuspendLayout();
-            this.materialCard16.SuspendLayout();
+            this.crownLabel13 = new ReaLTaiizor.Controls.CrownLabel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.crownLabel16 = new ReaLTaiizor.Controls.CrownLabel();
+            this.crownLabel17 = new ReaLTaiizor.Controls.CrownLabel();
+            this.card1.SuspendLayout();
+            this.card2.SuspendLayout();
+            this.card3.SuspendLayout();
+            this.card4.SuspendLayout();
+            this.card8.SuspendLayout();
+            this.card7.SuspendLayout();
+            this.card6.SuspendLayout();
+            this.card5.SuspendLayout();
+            this.card12.SuspendLayout();
+            this.card11.SuspendLayout();
+            this.card10.SuspendLayout();
+            this.card9.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.card13.SuspendLayout();
+            this.card14.SuspendLayout();
+            this.card15.SuspendLayout();
+            this.card16.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // materialCard1
+            // card1
             // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.cardStatus);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(14, 14);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(67, 120);
-            this.materialCard1.TabIndex = 1;
+            this.card1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card1.Controls.Add(this.cardStatus0);
+            this.card1.Depth = 0;
+            this.card1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card1.Location = new System.Drawing.Point(14, 14);
+            this.card1.Margin = new System.Windows.Forms.Padding(14);
+            this.card1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card1.Name = "card1";
+            this.card1.Padding = new System.Windows.Forms.Padding(14);
+            this.card1.Size = new System.Drawing.Size(67, 120);
+            this.card1.TabIndex = 1;
+            this.card1.Paint += new System.Windows.Forms.PaintEventHandler(this.card1_Paint);
             // 
-            // cardStatus
+            // cardStatus0
             // 
-            this.cardStatus.AutoSize = true;
-            this.cardStatus.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cardStatus.ForeColor = System.Drawing.Color.Black;
-            this.cardStatus.Location = new System.Drawing.Point(14, 32);
-            this.cardStatus.Name = "cardStatus";
-            this.cardStatus.Size = new System.Drawing.Size(48, 62);
-            this.cardStatus.TabIndex = 0;
-            this.cardStatus.Text = "?";
-            this.cardStatus.Click += new System.EventHandler(this.cardStatus_Click);
+            this.cardStatus0.AutoSize = true;
+            this.cardStatus0.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus0.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus0.Location = new System.Drawing.Point(14, 32);
+            this.cardStatus0.Name = "cardStatus0";
+            this.cardStatus0.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus0.TabIndex = 0;
+            this.cardStatus0.Text = "?";
+            this.cardStatus0.Click += new System.EventHandler(this.cardStatus_Click);
             // 
-            // materialCard2
+            // card2
             // 
-            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.crownLabel1);
-            this.materialCard2.Depth = 0;
-            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(90, 14);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(67, 120);
-            this.materialCard2.TabIndex = 2;
+            this.card2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card2.Controls.Add(this.cardStatus1);
+            this.card2.Depth = 0;
+            this.card2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card2.Location = new System.Drawing.Point(90, 14);
+            this.card2.Margin = new System.Windows.Forms.Padding(14);
+            this.card2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card2.Name = "card2";
+            this.card2.Padding = new System.Windows.Forms.Padding(14);
+            this.card2.Size = new System.Drawing.Size(67, 120);
+            this.card2.TabIndex = 2;
             // 
-            // crownLabel1
+            // cardStatus1
             // 
-            this.crownLabel1.AutoSize = true;
-            this.crownLabel1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel1.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel1.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel1.Name = "crownLabel1";
-            this.crownLabel1.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel1.TabIndex = 1;
-            this.crownLabel1.Text = "?";
+            this.cardStatus1.AutoSize = true;
+            this.cardStatus1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus1.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus1.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus1.Name = "cardStatus1";
+            this.cardStatus1.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus1.TabIndex = 1;
+            this.cardStatus1.Text = "?";
             // 
-            // materialCard3
+            // card3
             // 
-            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard3.Controls.Add(this.crownLabel2);
-            this.materialCard3.Depth = 0;
-            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(167, 14);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard3.Name = "materialCard3";
-            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(67, 120);
-            this.materialCard3.TabIndex = 3;
+            this.card3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card3.Controls.Add(this.cardStatus2);
+            this.card3.Depth = 0;
+            this.card3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card3.Location = new System.Drawing.Point(167, 14);
+            this.card3.Margin = new System.Windows.Forms.Padding(14);
+            this.card3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card3.Name = "card3";
+            this.card3.Padding = new System.Windows.Forms.Padding(14);
+            this.card3.Size = new System.Drawing.Size(67, 120);
+            this.card3.TabIndex = 3;
             // 
-            // crownLabel2
+            // cardStatus2
             // 
-            this.crownLabel2.AutoSize = true;
-            this.crownLabel2.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel2.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel2.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel2.Name = "crownLabel2";
-            this.crownLabel2.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel2.TabIndex = 1;
-            this.crownLabel2.Text = "?";
+            this.cardStatus2.AutoSize = true;
+            this.cardStatus2.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus2.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus2.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus2.Name = "cardStatus2";
+            this.cardStatus2.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus2.TabIndex = 1;
+            this.cardStatus2.Text = "?";
             // 
-            // materialCard10
+            // card4
             // 
-            this.materialCard10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard10.Controls.Add(this.crownLabel3);
-            this.materialCard10.Depth = 0;
-            this.materialCard10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard10.Location = new System.Drawing.Point(244, 14);
-            this.materialCard10.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard10.Name = "materialCard10";
-            this.materialCard10.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard10.Size = new System.Drawing.Size(67, 120);
-            this.materialCard10.TabIndex = 4;
+            this.card4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card4.Controls.Add(this.cardStatus3);
+            this.card4.Depth = 0;
+            this.card4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card4.Location = new System.Drawing.Point(244, 14);
+            this.card4.Margin = new System.Windows.Forms.Padding(14);
+            this.card4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card4.Name = "card4";
+            this.card4.Padding = new System.Windows.Forms.Padding(14);
+            this.card4.Size = new System.Drawing.Size(67, 120);
+            this.card4.TabIndex = 4;
             // 
-            // crownLabel3
+            // cardStatus3
             // 
-            this.crownLabel3.AutoSize = true;
-            this.crownLabel3.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel3.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel3.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel3.Name = "crownLabel3";
-            this.crownLabel3.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel3.TabIndex = 1;
-            this.crownLabel3.Text = "?";
+            this.cardStatus3.AutoSize = true;
+            this.cardStatus3.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus3.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus3.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus3.Name = "cardStatus3";
+            this.cardStatus3.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus3.TabIndex = 1;
+            this.cardStatus3.Text = "?";
             // 
-            // materialCard4
+            // card8
             // 
-            this.materialCard4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard4.Controls.Add(this.crownLabel4);
-            this.materialCard4.Depth = 0;
-            this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard4.Location = new System.Drawing.Point(244, 140);
-            this.materialCard4.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard4.Name = "materialCard4";
-            this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard4.Size = new System.Drawing.Size(67, 120);
-            this.materialCard4.TabIndex = 8;
+            this.card8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card8.Controls.Add(this.cardStatus7);
+            this.card8.Depth = 0;
+            this.card8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card8.Location = new System.Drawing.Point(244, 140);
+            this.card8.Margin = new System.Windows.Forms.Padding(14);
+            this.card8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card8.Name = "card8";
+            this.card8.Padding = new System.Windows.Forms.Padding(14);
+            this.card8.Size = new System.Drawing.Size(67, 120);
+            this.card8.TabIndex = 8;
             // 
-            // crownLabel4
+            // cardStatus7
             // 
-            this.crownLabel4.AutoSize = true;
-            this.crownLabel4.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel4.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel4.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel4.Name = "crownLabel4";
-            this.crownLabel4.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel4.TabIndex = 1;
-            this.crownLabel4.Text = "?";
+            this.cardStatus7.AutoSize = true;
+            this.cardStatus7.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus7.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus7.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus7.Name = "cardStatus7";
+            this.cardStatus7.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus7.TabIndex = 1;
+            this.cardStatus7.Text = "?";
             // 
-            // materialCard5
+            // card7
             // 
-            this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard5.Controls.Add(this.crownLabel5);
-            this.materialCard5.Depth = 0;
-            this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard5.Location = new System.Drawing.Point(167, 140);
-            this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard5.Name = "materialCard5";
-            this.materialCard5.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard5.Size = new System.Drawing.Size(67, 120);
-            this.materialCard5.TabIndex = 7;
+            this.card7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card7.Controls.Add(this.cardStatus6);
+            this.card7.Depth = 0;
+            this.card7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card7.Location = new System.Drawing.Point(167, 140);
+            this.card7.Margin = new System.Windows.Forms.Padding(14);
+            this.card7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card7.Name = "card7";
+            this.card7.Padding = new System.Windows.Forms.Padding(14);
+            this.card7.Size = new System.Drawing.Size(67, 120);
+            this.card7.TabIndex = 7;
             // 
-            // crownLabel5
+            // cardStatus6
             // 
-            this.crownLabel5.AutoSize = true;
-            this.crownLabel5.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel5.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel5.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel5.Name = "crownLabel5";
-            this.crownLabel5.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel5.TabIndex = 1;
-            this.crownLabel5.Text = "?";
+            this.cardStatus6.AutoSize = true;
+            this.cardStatus6.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus6.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus6.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus6.Name = "cardStatus6";
+            this.cardStatus6.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus6.TabIndex = 1;
+            this.cardStatus6.Text = "?";
             // 
-            // materialCard6
+            // card6
             // 
-            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard6.Controls.Add(this.crownLabel6);
-            this.materialCard6.Depth = 0;
-            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard6.Location = new System.Drawing.Point(90, 140);
-            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard6.Name = "materialCard6";
-            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard6.Size = new System.Drawing.Size(67, 120);
-            this.materialCard6.TabIndex = 6;
+            this.card6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card6.Controls.Add(this.cardStatus5);
+            this.card6.Depth = 0;
+            this.card6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card6.Location = new System.Drawing.Point(90, 140);
+            this.card6.Margin = new System.Windows.Forms.Padding(14);
+            this.card6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card6.Name = "card6";
+            this.card6.Padding = new System.Windows.Forms.Padding(14);
+            this.card6.Size = new System.Drawing.Size(67, 120);
+            this.card6.TabIndex = 6;
             // 
-            // crownLabel6
+            // cardStatus5
             // 
-            this.crownLabel6.AutoSize = true;
-            this.crownLabel6.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel6.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel6.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel6.Name = "crownLabel6";
-            this.crownLabel6.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel6.TabIndex = 1;
-            this.crownLabel6.Text = "?";
+            this.cardStatus5.AutoSize = true;
+            this.cardStatus5.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus5.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus5.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus5.Name = "cardStatus5";
+            this.cardStatus5.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus5.TabIndex = 1;
+            this.cardStatus5.Text = "?";
             // 
-            // materialCard7
+            // card5
             // 
-            this.materialCard7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard7.Controls.Add(this.crownLabel7);
-            this.materialCard7.Depth = 0;
-            this.materialCard7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard7.Location = new System.Drawing.Point(14, 140);
-            this.materialCard7.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard7.Name = "materialCard7";
-            this.materialCard7.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard7.Size = new System.Drawing.Size(67, 120);
-            this.materialCard7.TabIndex = 5;
+            this.card5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card5.Controls.Add(this.cardStatus4);
+            this.card5.Depth = 0;
+            this.card5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card5.Location = new System.Drawing.Point(14, 140);
+            this.card5.Margin = new System.Windows.Forms.Padding(14);
+            this.card5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card5.Name = "card5";
+            this.card5.Padding = new System.Windows.Forms.Padding(14);
+            this.card5.Size = new System.Drawing.Size(67, 120);
+            this.card5.TabIndex = 5;
             // 
-            // crownLabel7
+            // cardStatus4
             // 
-            this.crownLabel7.AutoSize = true;
-            this.crownLabel7.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel7.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel7.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel7.Name = "crownLabel7";
-            this.crownLabel7.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel7.TabIndex = 1;
-            this.crownLabel7.Text = "?";
+            this.cardStatus4.AutoSize = true;
+            this.cardStatus4.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus4.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus4.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus4.Name = "cardStatus4";
+            this.cardStatus4.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus4.TabIndex = 1;
+            this.cardStatus4.Text = "?";
             // 
-            // materialCard11
+            // card12
             // 
-            this.materialCard11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard11.Controls.Add(this.crownLabel11);
-            this.materialCard11.Depth = 0;
-            this.materialCard11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard11.Location = new System.Drawing.Point(244, 266);
-            this.materialCard11.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard11.Name = "materialCard11";
-            this.materialCard11.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard11.Size = new System.Drawing.Size(67, 120);
-            this.materialCard11.TabIndex = 12;
+            this.card12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card12.Controls.Add(this.cardStatus11);
+            this.card12.Depth = 0;
+            this.card12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card12.Location = new System.Drawing.Point(244, 266);
+            this.card12.Margin = new System.Windows.Forms.Padding(14);
+            this.card12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card12.Name = "card12";
+            this.card12.Padding = new System.Windows.Forms.Padding(14);
+            this.card12.Size = new System.Drawing.Size(67, 120);
+            this.card12.TabIndex = 12;
             // 
-            // crownLabel11
+            // cardStatus11
             // 
-            this.crownLabel11.AutoSize = true;
-            this.crownLabel11.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel11.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel11.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel11.Name = "crownLabel11";
-            this.crownLabel11.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel11.TabIndex = 1;
-            this.crownLabel11.Text = "?";
+            this.cardStatus11.AutoSize = true;
+            this.cardStatus11.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus11.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus11.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus11.Name = "cardStatus11";
+            this.cardStatus11.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus11.TabIndex = 1;
+            this.cardStatus11.Text = "?";
             // 
-            // materialCard13
+            // card11
             // 
-            this.materialCard13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard13.Controls.Add(this.crownLabel10);
-            this.materialCard13.Depth = 0;
-            this.materialCard13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard13.Location = new System.Drawing.Point(167, 266);
-            this.materialCard13.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard13.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard13.Name = "materialCard13";
-            this.materialCard13.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard13.Size = new System.Drawing.Size(67, 120);
-            this.materialCard13.TabIndex = 11;
+            this.card11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card11.Controls.Add(this.cardStatus10);
+            this.card11.Depth = 0;
+            this.card11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card11.Location = new System.Drawing.Point(167, 266);
+            this.card11.Margin = new System.Windows.Forms.Padding(14);
+            this.card11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card11.Name = "card11";
+            this.card11.Padding = new System.Windows.Forms.Padding(14);
+            this.card11.Size = new System.Drawing.Size(67, 120);
+            this.card11.TabIndex = 11;
             // 
-            // crownLabel10
+            // cardStatus10
             // 
-            this.crownLabel10.AutoSize = true;
-            this.crownLabel10.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel10.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel10.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel10.Name = "crownLabel10";
-            this.crownLabel10.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel10.TabIndex = 1;
-            this.crownLabel10.Text = "?";
+            this.cardStatus10.AutoSize = true;
+            this.cardStatus10.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus10.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus10.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus10.Name = "cardStatus10";
+            this.cardStatus10.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus10.TabIndex = 1;
+            this.cardStatus10.Text = "?";
             // 
-            // materialCard15
+            // card10
             // 
-            this.materialCard15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard15.Controls.Add(this.crownLabel9);
-            this.materialCard15.Depth = 0;
-            this.materialCard15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard15.Location = new System.Drawing.Point(90, 266);
-            this.materialCard15.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard15.Name = "materialCard15";
-            this.materialCard15.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard15.Size = new System.Drawing.Size(67, 120);
-            this.materialCard15.TabIndex = 10;
+            this.card10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card10.Controls.Add(this.cardStatus9);
+            this.card10.Depth = 0;
+            this.card10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card10.Location = new System.Drawing.Point(90, 266);
+            this.card10.Margin = new System.Windows.Forms.Padding(14);
+            this.card10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card10.Name = "card10";
+            this.card10.Padding = new System.Windows.Forms.Padding(14);
+            this.card10.Size = new System.Drawing.Size(67, 120);
+            this.card10.TabIndex = 10;
             // 
-            // crownLabel9
+            // cardStatus9
             // 
-            this.crownLabel9.AutoSize = true;
-            this.crownLabel9.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel9.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel9.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel9.Name = "crownLabel9";
-            this.crownLabel9.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel9.TabIndex = 1;
-            this.crownLabel9.Text = "?";
+            this.cardStatus9.AutoSize = true;
+            this.cardStatus9.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus9.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus9.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus9.Name = "cardStatus9";
+            this.cardStatus9.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus9.TabIndex = 1;
+            this.cardStatus9.Text = "?";
             // 
-            // materialCard16
+            // card9
             // 
-            this.materialCard16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard16.Controls.Add(this.crownLabel8);
-            this.materialCard16.Depth = 0;
-            this.materialCard16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard16.Location = new System.Drawing.Point(14, 266);
-            this.materialCard16.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard16.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialCard16.Name = "materialCard16";
-            this.materialCard16.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard16.Size = new System.Drawing.Size(67, 120);
-            this.materialCard16.TabIndex = 9;
+            this.card9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card9.Controls.Add(this.cardStatus8);
+            this.card9.Depth = 0;
+            this.card9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card9.Location = new System.Drawing.Point(14, 266);
+            this.card9.Margin = new System.Windows.Forms.Padding(14);
+            this.card9.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card9.Name = "card9";
+            this.card9.Padding = new System.Windows.Forms.Padding(14);
+            this.card9.Size = new System.Drawing.Size(67, 120);
+            this.card9.TabIndex = 9;
             // 
-            // crownLabel8
+            // cardStatus8
             // 
-            this.crownLabel8.AutoSize = true;
-            this.crownLabel8.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownLabel8.ForeColor = System.Drawing.Color.Black;
-            this.crownLabel8.Location = new System.Drawing.Point(14, 35);
-            this.crownLabel8.Name = "crownLabel8";
-            this.crownLabel8.Size = new System.Drawing.Size(48, 62);
-            this.crownLabel8.TabIndex = 1;
-            this.crownLabel8.Text = "?";
+            this.cardStatus8.AutoSize = true;
+            this.cardStatus8.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus8.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus8.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus8.Name = "cardStatus8";
+            this.cardStatus8.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus8.TabIndex = 1;
+            this.cardStatus8.Text = "?";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.materialCard1);
-            this.panel1.Controls.Add(this.materialCard4);
-            this.panel1.Controls.Add(this.materialCard2);
-            this.panel1.Controls.Add(this.materialCard5);
-            this.panel1.Controls.Add(this.materialCard16);
-            this.panel1.Controls.Add(this.materialCard11);
-            this.panel1.Controls.Add(this.materialCard15);
-            this.panel1.Controls.Add(this.materialCard10);
-            this.panel1.Controls.Add(this.materialCard7);
-            this.panel1.Controls.Add(this.materialCard6);
-            this.panel1.Controls.Add(this.materialCard3);
-            this.panel1.Controls.Add(this.materialCard13);
-            this.panel1.Location = new System.Drawing.Point(3, 81);
+            this.panel1.Controls.Add(this.card13);
+            this.panel1.Controls.Add(this.card1);
+            this.panel1.Controls.Add(this.card14);
+            this.panel1.Controls.Add(this.card8);
+            this.panel1.Controls.Add(this.card15);
+            this.panel1.Controls.Add(this.card16);
+            this.panel1.Controls.Add(this.card2);
+            this.panel1.Controls.Add(this.card7);
+            this.panel1.Controls.Add(this.card9);
+            this.panel1.Controls.Add(this.card12);
+            this.panel1.Controls.Add(this.card10);
+            this.panel1.Controls.Add(this.card4);
+            this.panel1.Controls.Add(this.card5);
+            this.panel1.Controls.Add(this.card6);
+            this.panel1.Controls.Add(this.card3);
+            this.panel1.Controls.Add(this.card11);
+            this.panel1.Location = new System.Drawing.Point(3, 90);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(326, 398);
+            this.panel1.Size = new System.Drawing.Size(326, 523);
             this.panel1.TabIndex = 13;
+            // 
+            // card13
+            // 
+            this.card13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card13.Controls.Add(this.cardStatus12);
+            this.card13.Depth = 0;
+            this.card13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card13.Location = new System.Drawing.Point(14, 392);
+            this.card13.Margin = new System.Windows.Forms.Padding(14);
+            this.card13.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card13.Name = "card13";
+            this.card13.Padding = new System.Windows.Forms.Padding(14);
+            this.card13.Size = new System.Drawing.Size(67, 120);
+            this.card13.TabIndex = 13;
+            // 
+            // cardStatus12
+            // 
+            this.cardStatus12.AutoSize = true;
+            this.cardStatus12.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus12.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus12.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus12.Name = "cardStatus12";
+            this.cardStatus12.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus12.TabIndex = 1;
+            this.cardStatus12.Text = "?";
+            // 
+            // card14
+            // 
+            this.card14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card14.Controls.Add(this.cardStatus13);
+            this.card14.Depth = 0;
+            this.card14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card14.Location = new System.Drawing.Point(90, 392);
+            this.card14.Margin = new System.Windows.Forms.Padding(14);
+            this.card14.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card14.Name = "card14";
+            this.card14.Padding = new System.Windows.Forms.Padding(14);
+            this.card14.Size = new System.Drawing.Size(67, 120);
+            this.card14.TabIndex = 14;
+            // 
+            // cardStatus13
+            // 
+            this.cardStatus13.AutoSize = true;
+            this.cardStatus13.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus13.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus13.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus13.Name = "cardStatus13";
+            this.cardStatus13.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus13.TabIndex = 1;
+            this.cardStatus13.Text = "?";
+            // 
+            // card15
+            // 
+            this.card15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card15.Controls.Add(this.cardStatus14);
+            this.card15.Depth = 0;
+            this.card15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card15.Location = new System.Drawing.Point(167, 392);
+            this.card15.Margin = new System.Windows.Forms.Padding(14);
+            this.card15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card15.Name = "card15";
+            this.card15.Padding = new System.Windows.Forms.Padding(14);
+            this.card15.Size = new System.Drawing.Size(67, 120);
+            this.card15.TabIndex = 15;
+            // 
+            // cardStatus14
+            // 
+            this.cardStatus14.AutoSize = true;
+            this.cardStatus14.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus14.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus14.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus14.Name = "cardStatus14";
+            this.cardStatus14.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus14.TabIndex = 1;
+            this.cardStatus14.Text = "?";
+            // 
+            // card16
+            // 
+            this.card16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.card16.Controls.Add(this.cardStatus15);
+            this.card16.Depth = 0;
+            this.card16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.card16.Location = new System.Drawing.Point(244, 392);
+            this.card16.Margin = new System.Windows.Forms.Padding(14);
+            this.card16.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.card16.Name = "card16";
+            this.card16.Padding = new System.Windows.Forms.Padding(14);
+            this.card16.Size = new System.Drawing.Size(67, 120);
+            this.card16.TabIndex = 16;
+            // 
+            // cardStatus15
+            // 
+            this.cardStatus15.AutoSize = true;
+            this.cardStatus15.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardStatus15.ForeColor = System.Drawing.Color.Black;
+            this.cardStatus15.Location = new System.Drawing.Point(14, 35);
+            this.cardStatus15.Name = "cardStatus15";
+            this.cardStatus15.Size = new System.Drawing.Size(39, 50);
+            this.cardStatus15.TabIndex = 1;
+            this.cardStatus15.Text = "?";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 39);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.18257F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.81743F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(332, 482);
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.83648F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.16352F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(332, 642);
             this.tableLayoutPanel1.TabIndex = 14;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tableLayoutPanel2);
+            this.panel2.Controls.Add(this.tableLayoutPanel3);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(326, 78);
+            this.panel2.TabIndex = 14;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
-            this.tableLayoutPanel2.Controls.Add(this.crownLabel13, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.usernameLabel, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.crownLabel12, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.crownLabel14, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.crownLabel12, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.crownLabel13, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 42);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.58823F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.41177F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 68);
-            this.tableLayoutPanel2.TabIndex = 14;
-            // 
-            // crownLabel13
-            // 
-            this.crownLabel13.AutoSize = true;
-            this.crownLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel13.Location = new System.Drawing.Point(3, 31);
-            this.crownLabel13.Name = "crownLabel13";
-            this.crownLabel13.Size = new System.Drawing.Size(157, 28);
-            this.crownLabel13.TabIndex = 3;
-            this.crownLabel13.Text = "PLAYER1 SCORE: ";
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.usernameLabel.Location = new System.Drawing.Point(3, 0);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(131, 28);
-            this.usernameLabel.TabIndex = 1;
-            this.usernameLabel.Text = "YOUR SCORE:";
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 26);
+            this.tableLayoutPanel2.TabIndex = 16;
             // 
             // crownLabel12
             // 
             this.crownLabel12.AutoSize = true;
             this.crownLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel12.Location = new System.Drawing.Point(170, 0);
+            this.crownLabel12.Location = new System.Drawing.Point(3, 0);
             this.crownLabel12.Name = "crownLabel12";
-            this.crownLabel12.Size = new System.Drawing.Size(56, 28);
-            this.crownLabel12.TabIndex = 2;
-            this.crownLabel12.Text = "9000";
+            this.crownLabel12.Size = new System.Drawing.Size(107, 21);
+            this.crownLabel12.TabIndex = 1;
+            this.crownLabel12.Text = "YOUR SCORE:";
             // 
-            // crownLabel14
+            // crownLabel13
             // 
-            this.crownLabel14.AutoSize = true;
-            this.crownLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel14.Location = new System.Drawing.Point(170, 31);
-            this.crownLabel14.Name = "crownLabel14";
-            this.crownLabel14.Size = new System.Drawing.Size(56, 28);
-            this.crownLabel14.TabIndex = 4;
-            this.crownLabel14.Text = "9000";
+            this.crownLabel13.AutoSize = true;
+            this.crownLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel13.Location = new System.Drawing.Point(170, 0);
+            this.crownLabel13.Name = "crownLabel13";
+            this.crownLabel13.Size = new System.Drawing.Size(46, 21);
+            this.crownLabel13.TabIndex = 2;
+            this.crownLabel13.Text = "9000";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
+            this.tableLayoutPanel3.Controls.Add(this.crownLabel16, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.crownLabel17, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.58823F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(326, 26);
+            this.tableLayoutPanel3.TabIndex = 15;
+            // 
+            // crownLabel16
+            // 
+            this.crownLabel16.AutoSize = true;
+            this.crownLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel16.Location = new System.Drawing.Point(3, 0);
+            this.crownLabel16.Name = "crownLabel16";
+            this.crownLabel16.Size = new System.Drawing.Size(107, 21);
+            this.crownLabel16.TabIndex = 1;
+            this.crownLabel16.Text = "YOUR SCORE:";
+            // 
+            // crownLabel17
+            // 
+            this.crownLabel17.AutoSize = true;
+            this.crownLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel17.Location = new System.Drawing.Point(170, 0);
+            this.crownLabel17.Name = "crownLabel17";
+            this.crownLabel17.Size = new System.Drawing.Size(46, 21);
+            this.crownLabel17.TabIndex = 2;
+            this.crownLabel17.Text = "9000";
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 528);
+            this.ClientSize = new System.Drawing.Size(342, 686);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Image = ((System.Drawing.Image)(resources.GetObject("$this.Image")));
             this.MaximizeBox = false;
@@ -480,70 +625,91 @@
             this.Sizable = false;
             this.Text = "CLIENT";
             this.Load += new System.EventHandler(this.Game_Load);
-            this.materialCard1.ResumeLayout(false);
-            this.materialCard1.PerformLayout();
-            this.materialCard2.ResumeLayout(false);
-            this.materialCard2.PerformLayout();
-            this.materialCard3.ResumeLayout(false);
-            this.materialCard3.PerformLayout();
-            this.materialCard10.ResumeLayout(false);
-            this.materialCard10.PerformLayout();
-            this.materialCard4.ResumeLayout(false);
-            this.materialCard4.PerformLayout();
-            this.materialCard5.ResumeLayout(false);
-            this.materialCard5.PerformLayout();
-            this.materialCard6.ResumeLayout(false);
-            this.materialCard6.PerformLayout();
-            this.materialCard7.ResumeLayout(false);
-            this.materialCard7.PerformLayout();
-            this.materialCard11.ResumeLayout(false);
-            this.materialCard11.PerformLayout();
-            this.materialCard13.ResumeLayout(false);
-            this.materialCard13.PerformLayout();
-            this.materialCard15.ResumeLayout(false);
-            this.materialCard15.PerformLayout();
-            this.materialCard16.ResumeLayout(false);
-            this.materialCard16.PerformLayout();
+            this.card1.ResumeLayout(false);
+            this.card1.PerformLayout();
+            this.card2.ResumeLayout(false);
+            this.card2.PerformLayout();
+            this.card3.ResumeLayout(false);
+            this.card3.PerformLayout();
+            this.card4.ResumeLayout(false);
+            this.card4.PerformLayout();
+            this.card8.ResumeLayout(false);
+            this.card8.PerformLayout();
+            this.card7.ResumeLayout(false);
+            this.card7.PerformLayout();
+            this.card6.ResumeLayout(false);
+            this.card6.PerformLayout();
+            this.card5.ResumeLayout(false);
+            this.card5.PerformLayout();
+            this.card12.ResumeLayout(false);
+            this.card12.PerformLayout();
+            this.card11.ResumeLayout(false);
+            this.card11.PerformLayout();
+            this.card10.ResumeLayout(false);
+            this.card10.PerformLayout();
+            this.card9.ResumeLayout(false);
+            this.card9.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.card13.ResumeLayout(false);
+            this.card13.PerformLayout();
+            this.card14.ResumeLayout(false);
+            this.card14.PerformLayout();
+            this.card15.ResumeLayout(false);
+            this.card15.PerformLayout();
+            this.card16.ResumeLayout(false);
+            this.card16.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private ReaLTaiizor.Controls.MaterialCard materialCard1;
-        private ReaLTaiizor.Controls.MaterialCard materialCard2;
-        private ReaLTaiizor.Controls.MaterialCard materialCard3;
-        private ReaLTaiizor.Controls.MaterialCard materialCard10;
-        private ReaLTaiizor.Controls.MaterialCard materialCard4;
-        private ReaLTaiizor.Controls.MaterialCard materialCard5;
-        private ReaLTaiizor.Controls.MaterialCard materialCard6;
-        private ReaLTaiizor.Controls.MaterialCard materialCard7;
-        private ReaLTaiizor.Controls.MaterialCard materialCard11;
-        private ReaLTaiizor.Controls.MaterialCard materialCard13;
-        private ReaLTaiizor.Controls.MaterialCard materialCard15;
-        private ReaLTaiizor.Controls.MaterialCard materialCard16;
+        private ReaLTaiizor.Controls.MaterialCard card1;
+        private ReaLTaiizor.Controls.MaterialCard card2;
+        private ReaLTaiizor.Controls.MaterialCard card3;
+        private ReaLTaiizor.Controls.MaterialCard card4;
+        private ReaLTaiizor.Controls.MaterialCard card8;
+        private ReaLTaiizor.Controls.MaterialCard card7;
+        private ReaLTaiizor.Controls.MaterialCard card6;
+        private ReaLTaiizor.Controls.MaterialCard card5;
+        private ReaLTaiizor.Controls.MaterialCard card12;
+        private ReaLTaiizor.Controls.MaterialCard card11;
+        private ReaLTaiizor.Controls.MaterialCard card10;
+        private ReaLTaiizor.Controls.MaterialCard card9;
         private System.Windows.Forms.Panel panel1;
-        private ReaLTaiizor.Controls.CrownLabel cardStatus;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel1;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel2;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel3;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel4;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel5;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel6;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel7;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel11;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel10;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel9;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel8;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus0;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus1;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus2;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus3;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus7;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus6;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus5;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus4;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus11;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus10;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus9;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel13;
-        private ReaLTaiizor.Controls.CrownLabel usernameLabel;
         private ReaLTaiizor.Controls.CrownLabel crownLabel12;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel14;
+        private ReaLTaiizor.Controls.CrownLabel crownLabel13;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private ReaLTaiizor.Controls.CrownLabel crownLabel16;
+        private ReaLTaiizor.Controls.CrownLabel crownLabel17;
+        private ReaLTaiizor.Controls.MaterialCard card13;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus12;
+        private ReaLTaiizor.Controls.MaterialCard card14;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus13;
+        private ReaLTaiizor.Controls.MaterialCard card15;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus14;
+        private ReaLTaiizor.Controls.MaterialCard card16;
+        private ReaLTaiizor.Controls.CrownLabel cardStatus15;
     }
 }
 

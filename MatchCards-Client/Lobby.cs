@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MatchCards_Client
 {
@@ -23,6 +22,9 @@ namespace MatchCards_Client
 
         private void Game_Load(object sender, EventArgs e)
         {
+            clientChatBox.Text += $"Connected To Server... {Environment.NewLine}";
+            usernameLabel.Text = User.Username;
+
             TcpClientSingleton.Client.Events.DataReceived += DataReceived;
         }
 
@@ -77,10 +79,10 @@ namespace MatchCards_Client
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
         {
-           if (TcpClientSingleton.Client.IsConnected) 
+            if (TcpClientSingleton.Client.IsConnected) 
             {
-                MessageBox.Show("You are in the queue, waiting for people");
-                TcpClientSingleton.Client.Send($"!!is in the queue");
+                clientChatBox.Text += $"You are in the ranked queue, waiting for people {Environment.NewLine}";
+                TcpClientSingleton.Client.Send($"-- {User.Username} is in the ranked queue");
             }
             else 
             {
@@ -99,7 +101,7 @@ namespace MatchCards_Client
             {
                 TcpClientSingleton.Client.Send($"UF {User.Username}");
                 await Task.Delay(1000);
-                TcpClientSingleton.Client.Send($"!! {User.Username} has logged out!");
+                TcpClientSingleton.Client.Send($"-- {User.Username} has logged out!");
             }
             finally
             {
@@ -110,5 +112,22 @@ namespace MatchCards_Client
             Application.Exit();
         }
 
+        private void lostAcceptButton2_Click(object sender, EventArgs e)
+        {
+            var game = new Game();
+            this.Hide();
+            game.Show();
+
+            //if (TcpClientSingleton.Client.IsConnected)
+            //{
+            //    clientChatBox.Text += $"You are in the unranked queue, waiting for people {Environment.NewLine}";
+            //    clientChatBox.Text += $"No points will be gained from an unranked match {Environment.NewLine}";
+            //    TcpClientSingleton.Client.Send($"-- {User.Username} is in the unranked queue");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No connection to server");
+            //}
+        }
     }
 }
