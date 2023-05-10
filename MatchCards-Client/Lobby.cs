@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MatchCards_Client
 {
@@ -37,32 +38,37 @@ namespace MatchCards_Client
             }
         }
 
+        private void GetOnlinePlayers(string usernameList)
+        {
+            if (onlineUserList.Items.Count >= 1)
+            {
+                onlineUserList.Items.Clear();
+            }
+
+            string[] OnlinePlayerNames = usernameList.Split(',');
+            List<string> OnlinePlayers = new List<string>(OnlinePlayerNames);
+
+            for (int i = 0; i < OnlinePlayers.Count(); i++)
+            {
+                onlineUserList.Items.Add(OnlinePlayers.ElementAt(i).Trim());
+            }
+        }
+
+
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
             var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
             string cmdSyntax = data.Substring(0, 2);
-            string usernameListOrSingleUser = data.Substring(3);
+            string usernameList = data.Substring(3);
 
             if (cmdSyntax == "!O")
             {
-                if (onlineUserList.Items.Count > 1) 
-                {
-                    onlineUserList.Items.Clear();
-                }
-
-                string[] OnlinePlayerNames = usernameListOrSingleUser.Split(',');
-                List<string> OnlinePlayers = new List<string>(OnlinePlayerNames);
-
-                for (int i = 0; i < OnlinePlayers.Count(); i++) 
-                {
-                    onlineUserList.Items.Add(OnlinePlayers.ElementAt(i).Trim());
-                }
+                GetOnlinePlayers(usernameList);
             }
             else if (cmdSyntax == "!F") 
             {
-                onlineUserList.Items.Remove(usernameListOrSingleUser);
+                GetOnlinePlayers(usernameList);
             }
-
             else
             {
                 clientChatBox.Text += data;
@@ -89,9 +95,20 @@ namespace MatchCards_Client
 
         protected override async void OnFormClosing(FormClosingEventArgs e)
         {
-            TcpClientSingleton.Client.Send($"!F [{User.Username.Length}] {User.Username}");
+            try
+            {
+                TcpClientSingleton.Client.Send($"UF {User.Username}");
+                await Task.Delay(1000);
+                TcpClientSingleton.Client.Send($"!! {User.Username} has logged out!");
+            }
+            finally
+            {
+                TcpClientSingleton.Client.Disconnect();
+            }
 
+            await Task.Delay(1000);
             Application.Exit();
         }
+
     }
 }

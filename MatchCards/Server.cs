@@ -56,7 +56,12 @@ namespace MatchCards_Server
 
             if (cmdSyntax == "!!")
             {
-                serverLogTextBox.Text += $"[{e.IpPort}]: {data}{Environment.NewLine}";
+                serverLogTextBox.Text += $"[{e.IpPort}]: {data.Substring(3)}{Environment.NewLine}";
+            }
+            if (cmdSyntax == "UF")
+            {
+                string user = data.Substring(2);
+                UpdateLoginStatus(e.IpPort, user, false);
             }
             else if (cmdSyntax == "--")
             {
@@ -71,8 +76,6 @@ namespace MatchCards_Server
             string username = data.Substring(7, userLength);
             string password = data.Substring(7 + userLength + 3);
 
-            MessageBox.Show(data);
-
             if (cmdSyntax == "!C")
             {
                 CreateNewUser(username, password);
@@ -81,10 +84,7 @@ namespace MatchCards_Server
             {
                 CheckLoginInformation(e.IpPort, username, password);
             }
-            else if (cmdSyntax == "!F")
-            {   
-                UpdateLoginStatus(e.IpPort, username, false);
-            }
+
         }
 
         private void CreateNewUser(string username, string password)
@@ -146,14 +146,19 @@ namespace MatchCards_Server
                 conn.Open();
                 string sql = "UPDATE Users SET Online = 0 WHERE Username = @Username";
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Username", username.Trim());
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                await Task.Delay(1000); // Wait for 1 second asynchronously
 
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
                     string port = userList.Items[i].ToString();
-                    server.Send(port, $"[{ipPort}]: !F {username}");
+                    List<string> onlineUsers = GetOnlineUsers();
+
+                    string onlineUsersString = String.Join(", ", onlineUsers);
+                    server.Send(port, $"[{ipPort}]: !F {onlineUsersString}");
                 }
             }
         }
@@ -204,6 +209,7 @@ namespace MatchCards_Server
         {
             server.Stop();
             stopServerButton.Enabled = false;
+            startServerButton.Enabled = true;
             serverLogTextBox.Text += $"Stopping....{Environment.NewLine}";
         }
 
