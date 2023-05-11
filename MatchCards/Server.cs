@@ -29,6 +29,9 @@ namespace MatchCards_Server
 
         private SimpleTcpServer server;
 
+        private List<Dictionary<string, string>> usersInUnrankedQueue = new List<Dictionary<string, string>>();
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             server = new SimpleTcpServer(serverIPText.Text + ":" + serverPortText.Text);
@@ -54,38 +57,124 @@ namespace MatchCards_Server
             var data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
             var cmdSyntax = data.Substring(0, 2);
 
-            if (cmdSyntax == "!!")
+            switch (cmdSyntax)
             {
-                serverLogTextBox.Text += $"[{e.IpPort}]: {data.Substring(3)}{Environment.NewLine}";
+                case "UQ":
+                    Dictionary<string, string> user = new Dictionary<string, string>
+                    {
+                        { "client_port", e.IpPort.ToString() },
+                        { "usernameInQueue", data.Substring(2) }
+                    };
+
+                    usersInUnrankedQueue.Add(user);
+
+                    // Accessing the added item
+                    Dictionary<string, string> firstUser = usersInUnrankedQueue[0];
+                    string clientPort = firstUser["client_port"];  // IP Port value
+                    string usernameInQueue = firstUser["usernameInQueue"];  // Username value
+
+                    int numberOfUsersInUnrankedQueue = usernameInQueue.Count();
+
+                    serverLogTextBox.Text += $"Players in unranked queue: {numberOfUsersInUnrankedQueue}{Environment.NewLine}";
+
+                    sendMessageToAllClients(e.IpPort, $"-- Players in unranked queue: {numberOfUsersInUnrankedQueue}");
+
+                    if (numberOfUsersInUnrankedQueue > 2) 
+                    {
+                        MessageBox.Show(getRandomPlayersFromQueue(usersInUnrankedQueue, false).ToString());
+                    }
+                    else if (numberOfUsersInUnrankedQueue == 2)
+                    {
+                        
+                    }
+
+                    break;
+
+                case "!!":
+                    serverLogTextBox.Text += $"[{e.IpPort}]: {data.Substring(3)}{Environment.NewLine}";
+                    break;
+
+                case "UF":
+                    string username = data.Substring(2);
+                    UpdateLoginStatus(e.IpPort, username, false);
+                    break;
+
+                case "--":
+                    for (int i = 0; i < userList.Items.Count; i++)
+                    {
+                        sendMessageToAllClients(e.IpPort, data);
+                    }
+                    break;
+
+                case "!C":
+                    ProcessCreateOrUpdateUser(data, e.IpPort, true);
+                    break;
+
+                case "!L":
+                    ProcessCreateOrUpdateUser(data, e.IpPort, false);
+                    break;
+
+                default:
+                    // Handle unknown command or display an error message
+                    break;
             }
-            if (cmdSyntax == "UF")
+        }
+
+        private void sendMessageToAllClients(string ipPort, string data) 
+        {
+            for (int i = 0; i < userList.Items.Count; i++)
             {
-                string user = data.Substring(2);
-                UpdateLoginStatus(e.IpPort, user, false);
+                string port = userList.Items[i].ToString();
+                server.Send(port, $"[{ipPort}] {data.Substring(2)}");
             }
-            else if (cmdSyntax == "--")
+        }
+
+        private List<Dictionary<string, string>> getRandomPlayersFromQueue(List<Dictionary<string, string>> list, bool rankedOrUnranked)
+        {
+            List<Dictionary<string, string>> twoGamePlayers = new List<Dictionary<string, string>>();
+
+            Random randomPick = new Random();
+
+            if (rankedOrUnranked == false)
             {
-                for (int i = 0; i < userList.Items.Count; i++)
+                // Select two random players
+                for (int i = 0; i < 2; i++)
                 {
-                    string port = userList.Items[i].ToString();
-                    server.Send(port, $"[{e.IpPort}] {data.Substring(2)}");
+                    // Generate a random index within the range of the list
+                    int randomIndex = randomPick.Next(0, list.Count);
+
+                    // Get the randomly selected player from the list
+                    Dictionary<string, string> selectedPlayer = list[randomIndex];
+
+                    // Add the selected player to the twoGamePlayers list
+                    twoGamePlayers.Add(selectedPlayer);
+
+                    // Remove the selected player from the userInUnrankedQueue list
+                    list.RemoveAt(randomIndex);
                 }
+
             }
 
+            return twoGamePlayers;
+        }
+
+
+        private void ProcessCreateOrUpdateUser(string data, string ipPort, bool isCreate)
+        {
             int userLength = int.Parse(data.Substring(4, 1));
             string username = data.Substring(7, userLength);
             string password = data.Substring(7 + userLength + 3);
 
-            if (cmdSyntax == "!C")
+            if (isCreate)
             {
                 CreateNewUser(username, password);
             }
-            else if (cmdSyntax == "!L")
+            else
             {
-                CheckLoginInformation(e.IpPort, username, password);
+                CheckLoginInformation(ipPort, username, password);
             }
-
         }
+
 
         private void CreateNewUser(string username, string password)
         {

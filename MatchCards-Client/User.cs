@@ -11,5 +11,7 @@ namespace MatchCards_Client
     {
         public static string IpPort { get; set; }
         public static string Username { get; set; }
+
+        public static int Points { get; set; }
     }
 }

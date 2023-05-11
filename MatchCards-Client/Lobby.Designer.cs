@@ -253,6 +253,7 @@
             this.usernameLabel.Size = new System.Drawing.Size(81, 21);
             this.usernameLabel.TabIndex = 22;
             this.usernameLabel.Text = "Username";
+            this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
             // 
             // Lobby
             // 

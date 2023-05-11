@@ -66,10 +66,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.crownLabel12 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel13 = new ReaLTaiizor.Controls.CrownLabel();
+            this.noOfPairs2 = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.crownLabel16 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel17 = new ReaLTaiizor.Controls.CrownLabel();
+            this.localClientName = new ReaLTaiizor.Controls.CrownLabel();
+            this.localNoOfPairs = new ReaLTaiizor.Controls.CrownLabel();
+            this.crownLabel1 = new ReaLTaiizor.Controls.CrownLabel();
+            this.crownLabel2 = new ReaLTaiizor.Controls.CrownLabel();
             this.card1.SuspendLayout();
             this.card2.SuspendLayout();
             this.card3.SuspendLayout();
@@ -536,11 +538,13 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.crownLabel2);
+            this.panel2.Controls.Add(this.crownLabel1);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Controls.Add(this.tableLayoutPanel3);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(326, 78);
+            this.panel2.Size = new System.Drawing.Size(326, 81);
             this.panel2.TabIndex = 14;
             // 
             // tableLayoutPanel2
@@ -549,8 +553,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel2.Controls.Add(this.crownLabel12, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.crownLabel13, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 42);
+            this.tableLayoutPanel2.Controls.Add(this.noOfPairs2, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 59);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.58823F));
@@ -568,24 +572,24 @@
             this.crownLabel12.TabIndex = 1;
             this.crownLabel12.Text = "YOUR SCORE:";
             // 
-            // crownLabel13
+            // noOfPairs2
             // 
-            this.crownLabel13.AutoSize = true;
-            this.crownLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel13.Location = new System.Drawing.Point(170, 0);
-            this.crownLabel13.Name = "crownLabel13";
-            this.crownLabel13.Size = new System.Drawing.Size(46, 21);
-            this.crownLabel13.TabIndex = 2;
-            this.crownLabel13.Text = "9000";
+            this.noOfPairs2.AutoSize = true;
+            this.noOfPairs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.noOfPairs2.Location = new System.Drawing.Point(170, 0);
+            this.noOfPairs2.Name = "noOfPairs2";
+            this.noOfPairs2.Size = new System.Drawing.Size(19, 21);
+            this.noOfPairs2.TabIndex = 2;
+            this.noOfPairs2.Text = "0";
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
-            this.tableLayoutPanel3.Controls.Add(this.crownLabel16, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.crownLabel17, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Controls.Add(this.localClientName, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.localNoOfPairs, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 27);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.58823F));
@@ -593,31 +597,53 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(326, 26);
             this.tableLayoutPanel3.TabIndex = 15;
             // 
-            // crownLabel16
+            // localClientName
             // 
-            this.crownLabel16.AutoSize = true;
-            this.crownLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel16.Location = new System.Drawing.Point(3, 0);
-            this.crownLabel16.Name = "crownLabel16";
-            this.crownLabel16.Size = new System.Drawing.Size(107, 21);
-            this.crownLabel16.TabIndex = 1;
-            this.crownLabel16.Text = "YOUR SCORE:";
+            this.localClientName.AutoSize = true;
+            this.localClientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.localClientName.Location = new System.Drawing.Point(3, 0);
+            this.localClientName.Name = "localClientName";
+            this.localClientName.Size = new System.Drawing.Size(107, 21);
+            this.localClientName.TabIndex = 1;
+            this.localClientName.Text = "YOUR SCORE:";
             // 
-            // crownLabel17
+            // localNoOfPairs
             // 
-            this.crownLabel17.AutoSize = true;
-            this.crownLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel17.Location = new System.Drawing.Point(170, 0);
-            this.crownLabel17.Name = "crownLabel17";
-            this.crownLabel17.Size = new System.Drawing.Size(46, 21);
-            this.crownLabel17.TabIndex = 2;
-            this.crownLabel17.Text = "9000";
+            this.localNoOfPairs.AutoSize = true;
+            this.localNoOfPairs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.localNoOfPairs.Location = new System.Drawing.Point(170, 0);
+            this.localNoOfPairs.Name = "localNoOfPairs";
+            this.localNoOfPairs.Size = new System.Drawing.Size(19, 21);
+            this.localNoOfPairs.TabIndex = 2;
+            this.localNoOfPairs.Text = "0";
+            this.localNoOfPairs.Click += new System.EventHandler(this.crownLabel17_Click);
+            // 
+            // crownLabel1
+            // 
+            this.crownLabel1.AutoSize = true;
+            this.crownLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel1.Location = new System.Drawing.Point(3, 3);
+            this.crownLabel1.Name = "crownLabel1";
+            this.crownLabel1.Size = new System.Drawing.Size(92, 21);
+            this.crownLabel1.TabIndex = 17;
+            this.crownLabel1.Text = "USERNAME";
+            // 
+            // crownLabel2
+            // 
+            this.crownLabel2.AutoSize = true;
+            this.crownLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel2.Location = new System.Drawing.Point(170, 3);
+            this.crownLabel2.Name = "crownLabel2";
+            this.crownLabel2.Size = new System.Drawing.Size(143, 21);
+            this.crownLabel2.TabIndex = 18;
+            this.crownLabel2.Text = "NUMBER OF PAIRS";
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 686);
+            this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Image = ((System.Drawing.Image)(resources.GetObject("$this.Image")));
             this.MaximizeBox = false;
@@ -660,6 +686,7 @@
             this.card16.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -698,10 +725,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private ReaLTaiizor.Controls.CrownLabel crownLabel12;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel13;
+        private ReaLTaiizor.Controls.CrownLabel noOfPairs2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel16;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel17;
+        private ReaLTaiizor.Controls.CrownLabel localClientName;
+        private ReaLTaiizor.Controls.CrownLabel localNoOfPairs;
         private ReaLTaiizor.Controls.MaterialCard card13;
         private ReaLTaiizor.Controls.CrownLabel cardStatus12;
         private ReaLTaiizor.Controls.MaterialCard card14;
@@ -710,6 +737,8 @@
         private ReaLTaiizor.Controls.CrownLabel cardStatus14;
         private ReaLTaiizor.Controls.MaterialCard card16;
         private ReaLTaiizor.Controls.CrownLabel cardStatus15;
+        private ReaLTaiizor.Controls.CrownLabel crownLabel1;
+        private ReaLTaiizor.Controls.CrownLabel crownLabel2;
     }
 }
 

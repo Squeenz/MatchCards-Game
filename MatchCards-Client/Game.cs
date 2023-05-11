@@ -54,6 +54,8 @@ namespace MatchCards_Client
 
         private void Game_Load(object sender, EventArgs e)
         {
+            localClientName.Text = $"{User.Username}";
+
             CardLabels = new Label[]
             {
                 cardStatus0, cardStatus1, cardStatus2, cardStatus3,
@@ -95,6 +97,8 @@ namespace MatchCards_Client
                     CheckCardMatch();
                 }
             }
+
+            localNoOfPairs.Text = amountOfPairs.ToString();
 
             if (amountOfPairs == 8) 
             {
@@ -149,6 +153,16 @@ namespace MatchCards_Client
         private void card1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void crownLabel17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
