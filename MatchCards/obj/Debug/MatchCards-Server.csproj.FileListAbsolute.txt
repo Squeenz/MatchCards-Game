@@ -27,7 +27,6 @@ C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards\obj\Debug\Ma
 C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards\obj\Debug\MatchCards-Server.csproj.CopyComplete
 C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards\obj\Debug\MatchCards-NewClient.exe
 C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards\obj\Debug\MatchCards-NewClient.pdb
-C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\System.Data.SQLite.xml
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\MatchCards-NewClient.exe.config
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\MatchCards-NewClient.exe
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\MatchCards-NewClient.pdb
@@ -41,6 +40,7 @@ C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\System.Data.
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\EntityFramework.xml
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\ReaLTaiizor.xml
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\bin\Debug\System.Data.SQLite.xml
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\obj\Debug\MatchCards-Server.csproj.AssemblyReference.cache
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\obj\Debug\MatchCards-Server.csproj.SuggestedBindingRedirects.cache
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\Matchcards\obj\Debug\MatchCards_Server.Server.resources

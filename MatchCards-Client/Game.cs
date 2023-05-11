@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ReaLTaiizor.Forms;
+using SuperSimpleTcp;
 
 namespace MatchCards_Client
 {
@@ -54,7 +55,11 @@ namespace MatchCards_Client
 
         private void Game_Load(object sender, EventArgs e)
         {
+            TcpClientSingleton.Client.Events.DataReceived += DataReceived;
+
             localClientName.Text = $"{User.Username}";
+            onlinePlayerName.Text = $"{User.OpponentUserName}";
+            User.OpponentPairs = "0";
 
             CardLabels = new Label[]
             {
@@ -69,6 +74,20 @@ namespace MatchCards_Client
             foreach (var cardLabel in CardLabels)
             {
                 cardLabel.Click += cardStatus_Click;
+            }
+        }
+
+        private void DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}";
+            string cmdSyntax = data.Substring(0, 2);
+
+            switch (cmdSyntax) 
+            {
+                case "UU":
+                    User.OpponentPairs = data.Substring(3);
+                    break;
+            
             }
         }
 
@@ -98,12 +117,17 @@ namespace MatchCards_Client
                 }
             }
 
+            //Send a message to server with new pair information
+
+            TcpClientSingleton.Client.Send($"UI {amountOfPairs} {User.OpponentIpPort}");
+
             localNoOfPairs.Text = amountOfPairs.ToString();
+            noOfPairsOnline.Text = User.OpponentPairs;
 
             if (amountOfPairs == 8) 
             {
                 MessageBox.Show("You have won!");
-            }
+            } 
         }
 
         private void CheckCardMatch()

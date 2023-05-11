@@ -60,6 +60,7 @@ namespace MatchCards_Client
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
             var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
+
             string cmdSyntax = data.Substring(0, 2);
             string usernameList = data.Substring(3);
 
@@ -70,11 +71,36 @@ namespace MatchCards_Client
                     GetOnlinePlayers(usernameList);
                     break;
 
+                case "UG":
+                    int userLength = int.Parse(data.Substring(4, 1));
+                    string username = data.Substring(8, userLength);
+                    string ipPort = data.Substring(8 + userLength + 1);
+
+                    User.OpponentIpPort = ipPort;
+                    User.OpponentUserName = username;
+
+                    GameChange();
+                    break;
+
                 default:
                     clientChatBox.Text += data;
                     break;
             }
         }
+
+        private void GameChange()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(GameChange));
+                return;
+            }
+
+            var game = new Game();
+            game.Show();
+            this.Hide();
+        }
+
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
         {
@@ -112,12 +138,9 @@ namespace MatchCards_Client
 
         private async void lostAcceptButton2_Click(object sender, EventArgs e)
         {
-
-
-
-            //var game = new Game();
-            //this.Hide();
-            //game.Show();
+            lostAcceptButton1.Enabled = false;
+            lostAcceptButton2.Text = "ALREADY IN THE QUEUE";
+            lostAcceptButton2.Enabled = false;
 
             if (TcpClientSingleton.Client.IsConnected)
             {

@@ -68,12 +68,7 @@ namespace MatchCards_Server
 
                     usersInUnrankedQueue.Add(user);
 
-                    // Accessing the added item
-                    Dictionary<string, string> firstUser = usersInUnrankedQueue[0];
-                    string clientPort = firstUser["client_port"];  // IP Port value
-                    string usernameInQueue = firstUser["usernameInQueue"];  // Username value
-
-                    int numberOfUsersInUnrankedQueue = usernameInQueue.Count();
+                    int numberOfUsersInUnrankedQueue = usersInUnrankedQueue.Count();
 
                     serverLogTextBox.Text += $"Players in unranked queue: {numberOfUsersInUnrankedQueue}{Environment.NewLine}";
 
@@ -81,13 +76,34 @@ namespace MatchCards_Server
 
                     if (numberOfUsersInUnrankedQueue > 2) 
                     {
-                        MessageBox.Show(getRandomPlayersFromQueue(usersInUnrankedQueue, false).ToString());
+                        List<Dictionary<string, string>> selectedPlayers = getRandomPlayersFromQueue(usersInUnrankedQueue, false);
+                        
                     }
                     else if (numberOfUsersInUnrankedQueue == 2)
                     {
-                        
+                        Dictionary<string, string> firstUser = usersInUnrankedQueue[0];
+                        Dictionary<string, string> secondUser = usersInUnrankedQueue[1];
+
+                        string clientPort1 = firstUser["client_port"];
+                        string usernameInQueue1 = firstUser["usernameInQueue"];
+
+                        string clientPort2 = secondUser["client_port"];
+                        string usernameInQueue2 = secondUser["usernameInQueue"];
+
+                        server.Send(clientPort1, $"[{clientPort1}]: UG [{usernameInQueue2.Trim().Length}] {usernameInQueue2} {clientPort2}");
+                        server.Send(clientPort2, $"[{clientPort2}]: UG [{usernameInQueue1.Trim().Length}] {usernameInQueue1} {clientPort1}");
+
+                        usersInUnrankedQueue.Remove(firstUser);
+                        usersInUnrankedQueue.Remove(secondUser);
                     }
 
+                    break;
+
+                case "UI":
+
+                    string opponentIpPort = data.Substring(5);
+                    string opponentAmountOfPairs = data.Substring(3, 1);
+                    server.Send(opponentIpPort.Trim(), $"[{opponentIpPort.Trim()}]: UU {opponentAmountOfPairs}");
                     break;
 
                 case "!!":

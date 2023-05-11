@@ -64,14 +64,14 @@
             this.cardStatus15 = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.crownLabel2 = new ReaLTaiizor.Controls.CrownLabel();
+            this.crownLabel1 = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.crownLabel12 = new ReaLTaiizor.Controls.CrownLabel();
-            this.noOfPairs2 = new ReaLTaiizor.Controls.CrownLabel();
+            this.onlinePlayerName = new ReaLTaiizor.Controls.CrownLabel();
+            this.noOfPairsOnline = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.localClientName = new ReaLTaiizor.Controls.CrownLabel();
             this.localNoOfPairs = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel1 = new ReaLTaiizor.Controls.CrownLabel();
-            this.crownLabel2 = new ReaLTaiizor.Controls.CrownLabel();
             this.card1.SuspendLayout();
             this.card2.SuspendLayout();
             this.card3.SuspendLayout();
@@ -547,13 +547,33 @@
             this.panel2.Size = new System.Drawing.Size(326, 81);
             this.panel2.TabIndex = 14;
             // 
+            // crownLabel2
+            // 
+            this.crownLabel2.AutoSize = true;
+            this.crownLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel2.Location = new System.Drawing.Point(170, 3);
+            this.crownLabel2.Name = "crownLabel2";
+            this.crownLabel2.Size = new System.Drawing.Size(143, 21);
+            this.crownLabel2.TabIndex = 18;
+            this.crownLabel2.Text = "NUMBER OF PAIRS";
+            // 
+            // crownLabel1
+            // 
+            this.crownLabel1.AutoSize = true;
+            this.crownLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.crownLabel1.Location = new System.Drawing.Point(3, 3);
+            this.crownLabel1.Name = "crownLabel1";
+            this.crownLabel1.Size = new System.Drawing.Size(92, 21);
+            this.crownLabel1.TabIndex = 17;
+            this.crownLabel1.Text = "USERNAME";
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
-            this.tableLayoutPanel2.Controls.Add(this.crownLabel12, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.noOfPairs2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.onlinePlayerName, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.noOfPairsOnline, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 59);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -562,25 +582,25 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 26);
             this.tableLayoutPanel2.TabIndex = 16;
             // 
-            // crownLabel12
+            // onlinePlayerName
             // 
-            this.crownLabel12.AutoSize = true;
-            this.crownLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel12.Location = new System.Drawing.Point(3, 0);
-            this.crownLabel12.Name = "crownLabel12";
-            this.crownLabel12.Size = new System.Drawing.Size(107, 21);
-            this.crownLabel12.TabIndex = 1;
-            this.crownLabel12.Text = "YOUR SCORE:";
+            this.onlinePlayerName.AutoSize = true;
+            this.onlinePlayerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.onlinePlayerName.Location = new System.Drawing.Point(3, 0);
+            this.onlinePlayerName.Name = "onlinePlayerName";
+            this.onlinePlayerName.Size = new System.Drawing.Size(107, 21);
+            this.onlinePlayerName.TabIndex = 1;
+            this.onlinePlayerName.Text = "YOUR SCORE:";
             // 
-            // noOfPairs2
+            // noOfPairsOnline
             // 
-            this.noOfPairs2.AutoSize = true;
-            this.noOfPairs2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.noOfPairs2.Location = new System.Drawing.Point(170, 0);
-            this.noOfPairs2.Name = "noOfPairs2";
-            this.noOfPairs2.Size = new System.Drawing.Size(19, 21);
-            this.noOfPairs2.TabIndex = 2;
-            this.noOfPairs2.Text = "0";
+            this.noOfPairsOnline.AutoSize = true;
+            this.noOfPairsOnline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.noOfPairsOnline.Location = new System.Drawing.Point(170, 0);
+            this.noOfPairsOnline.Name = "noOfPairsOnline";
+            this.noOfPairsOnline.Size = new System.Drawing.Size(19, 21);
+            this.noOfPairsOnline.TabIndex = 2;
+            this.noOfPairsOnline.Text = "0";
             // 
             // tableLayoutPanel3
             // 
@@ -617,26 +637,6 @@
             this.localNoOfPairs.TabIndex = 2;
             this.localNoOfPairs.Text = "0";
             this.localNoOfPairs.Click += new System.EventHandler(this.crownLabel17_Click);
-            // 
-            // crownLabel1
-            // 
-            this.crownLabel1.AutoSize = true;
-            this.crownLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel1.Location = new System.Drawing.Point(3, 3);
-            this.crownLabel1.Name = "crownLabel1";
-            this.crownLabel1.Size = new System.Drawing.Size(92, 21);
-            this.crownLabel1.TabIndex = 17;
-            this.crownLabel1.Text = "USERNAME";
-            // 
-            // crownLabel2
-            // 
-            this.crownLabel2.AutoSize = true;
-            this.crownLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.crownLabel2.Location = new System.Drawing.Point(170, 3);
-            this.crownLabel2.Name = "crownLabel2";
-            this.crownLabel2.Size = new System.Drawing.Size(143, 21);
-            this.crownLabel2.TabIndex = 18;
-            this.crownLabel2.Text = "NUMBER OF PAIRS";
             // 
             // Game
             // 
@@ -724,8 +724,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel12;
-        private ReaLTaiizor.Controls.CrownLabel noOfPairs2;
+        private ReaLTaiizor.Controls.CrownLabel onlinePlayerName;
+        private ReaLTaiizor.Controls.CrownLabel noOfPairsOnline;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private ReaLTaiizor.Controls.CrownLabel localClientName;
         private ReaLTaiizor.Controls.CrownLabel localNoOfPairs;

@@ -16,10 +16,10 @@ C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\D
 C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards-Client.csproj.CopyComplete
 C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards-Client.exe
 C:\Users\zilvi\OneDrive\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards-Client.pdb
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\ReaLTaiizor.dll
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\MatchCards-Client.exe.config
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\MatchCards-Client.exe
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\MatchCards-Client.pdb
-C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\ReaLTaiizor.dll
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\SuperSimpleTcp.dll
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\ReaLTaiizor.xml
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards-Client.csproj.AssemblyReference.cache
