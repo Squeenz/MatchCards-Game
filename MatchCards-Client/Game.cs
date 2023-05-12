@@ -129,6 +129,7 @@ namespace MatchCards_Client
             if (amountOfPairs == 8) 
             {
                 LobbyChange();
+                await Task.Delay(1000);
                 TcpClientSingleton.Client.Send($"GO {User.OpponentIpPort}");
                 await Task.Delay(1000);
                 TcpClientSingleton.Client.Send($"-- [Unranked] {User.Username} won against {User.OpponentUserName}");

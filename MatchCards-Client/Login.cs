@@ -76,8 +76,8 @@ namespace MatchCards_ClientLogin
 
             if (isValid == "VALID")
             {
-                LobbyChange();
                 User.Username = username;
+                LobbyChange();
             }
             else if (isValid == "INVALID")
             {

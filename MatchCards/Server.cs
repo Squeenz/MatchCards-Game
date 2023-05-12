@@ -95,6 +95,17 @@ namespace MatchCards_Server
                     }
                     break;
 
+                case "RO":
+                    for (int i = 0; i < userList.Items.Count; i++)
+                    {
+                        string port = userList.Items[i].ToString();
+                        List<string> onlineUsers = GetOnlineUsers();
+
+                        string onlineUsersString = String.Join(", ", onlineUsers);
+                        server.Send(port, $"[{e.IpPort}]: !R {onlineUsersString}");
+                    }
+                    break;
+
                 case "UI":
 
                     string opponentIpPort = data.Substring(5);
@@ -112,7 +123,7 @@ namespace MatchCards_Server
                     break;
 
                 case "--":
-                       sendMessageToAllClients(e.IpPort, data.Substring(2));
+                    sendMessageToAllClients(e.IpPort, data);
                     break;
 
                 case "!C":
@@ -149,7 +160,7 @@ namespace MatchCards_Server
             for (int i = 0; i < userList.Items.Count; i++)
             {
                 string port = userList.Items[i].ToString();
-                server.Send(port, $"[{ipPort}] {data}");
+                server.Send(port, $"[{ipPort}] {data.Substring(2)}");
             }
         }
 
@@ -321,7 +332,18 @@ namespace MatchCards_Server
             server.Stop();
             stopServerButton.Enabled = false;
             startServerButton.Enabled = true;
+            serverLogTextBox.Text += $"All Players have been set to offline....{Environment.NewLine}";
             serverLogTextBox.Text += $"Stopping....{Environment.NewLine}";
+            setAllPlayersOffline();
+        }
+
+        private void setAllPlayersOffline()
+        {
+            conn.Open();
+            string sql = "UPDATE Users SET Online = 0";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         private void userList_SelectedIndexChanged(object sender, EventArgs e)
@@ -345,6 +367,11 @@ namespace MatchCards_Server
         private void serverChatBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            setAllPlayersOffline();
         }
     }
 }

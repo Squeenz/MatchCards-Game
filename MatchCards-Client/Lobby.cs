@@ -26,6 +26,7 @@ namespace MatchCards_Client
             clientChatBox.Text += $"Connected To Server... {Environment.NewLine}";
             TcpClientSingleton.Client.Events.DataReceived += DataReceived;
             usernameLabel.Text = User.Username;
+            TcpClientSingleton.Client.Send($"RO");
         }
 
         private void startServerButton_Click(object sender, EventArgs e)
@@ -67,6 +68,7 @@ namespace MatchCards_Client
             switch (cmdSyntax) 
             {
                 case "!O":
+                case "!R":
                 case "!F":
                     GetOnlinePlayers(usernameList);
                     break;
