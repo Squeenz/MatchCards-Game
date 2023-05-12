@@ -74,29 +74,25 @@ namespace MatchCards_Server
 
                     sendMessageToAllClients(e.IpPort, $"-- Players in unranked queue: {numberOfUsersInUnrankedQueue}");
 
-                    if (numberOfUsersInUnrankedQueue > 2) 
+                    if (numberOfUsersInUnrankedQueue > 2)
                     {
                         List<Dictionary<string, string>> selectedPlayers = getRandomPlayersFromQueue(usersInUnrankedQueue, false);
-                        
+
+                        SendMatchmakingMessage(server, selectedPlayers[0], selectedPlayers[1]);
+
+                        usersInUnrankedQueue.Remove(selectedPlayers[0]);
+                        usersInUnrankedQueue.Remove(selectedPlayers[1]);
                     }
                     else if (numberOfUsersInUnrankedQueue == 2)
                     {
                         Dictionary<string, string> firstUser = usersInUnrankedQueue[0];
                         Dictionary<string, string> secondUser = usersInUnrankedQueue[1];
 
-                        string clientPort1 = firstUser["client_port"];
-                        string usernameInQueue1 = firstUser["usernameInQueue"];
-
-                        string clientPort2 = secondUser["client_port"];
-                        string usernameInQueue2 = secondUser["usernameInQueue"];
-
-                        server.Send(clientPort1, $"[{clientPort1}]: UG [{usernameInQueue2.Trim().Length}] {usernameInQueue2} {clientPort2}");
-                        server.Send(clientPort2, $"[{clientPort2}]: UG [{usernameInQueue1.Trim().Length}] {usernameInQueue1} {clientPort1}");
+                        SendMatchmakingMessage(server, firstUser, secondUser);
 
                         usersInUnrankedQueue.Remove(firstUser);
                         usersInUnrankedQueue.Remove(secondUser);
                     }
-
                     break;
 
                 case "UI":
@@ -116,10 +112,7 @@ namespace MatchCards_Server
                     break;
 
                 case "--":
-                    for (int i = 0; i < userList.Items.Count; i++)
-                    {
-                        sendMessageToAllClients(e.IpPort, data);
-                    }
+                       sendMessageToAllClients(e.IpPort, data.Substring(2));
                     break;
 
                 case "!C":
@@ -130,18 +123,33 @@ namespace MatchCards_Server
                     ProcessCreateOrUpdateUser(data, e.IpPort, false);
                     break;
 
-                default:
-                    // Handle unknown command or display an error message
+                case "GO":
+                    string ipPort = data.Substring(3).Trim();
+                    server.Send(ipPort, $"[{ipPort}]: EX");
+
                     break;
             }
         }
+
+        private void SendMatchmakingMessage(SimpleTcpServer server, Dictionary<string, string> user1, Dictionary<string, string> user2)
+        {
+            string clientPort1 = user1["client_port"];
+            string usernameInQueue1 = user1["usernameInQueue"];
+
+            string clientPort2 = user2["client_port"];
+            string usernameInQueue2 = user2["usernameInQueue"];
+
+            server.Send(clientPort1, $"[{clientPort1}]: UG [{usernameInQueue2.Trim().Length}] {usernameInQueue2} {clientPort2}");
+            server.Send(clientPort2, $"[{clientPort2}]: UG [{usernameInQueue1.Trim().Length}] {usernameInQueue1} {clientPort1}");
+        }
+
 
         private void sendMessageToAllClients(string ipPort, string data) 
         {
             for (int i = 0; i < userList.Items.Count; i++)
             {
                 string port = userList.Items[i].ToString();
-                server.Send(port, $"[{ipPort}] {data.Substring(2)}");
+                server.Send(port, $"[{ipPort}] {data}");
             }
         }
 

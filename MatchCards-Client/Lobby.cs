@@ -70,7 +70,6 @@ namespace MatchCards_Client
                 case "!F":
                     GetOnlinePlayers(usernameList);
                     break;
-
                 case "UG":
                     int userLength = int.Parse(data.Substring(4, 1));
                     string username = data.Substring(8, userLength);

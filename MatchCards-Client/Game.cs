@@ -87,11 +87,13 @@ namespace MatchCards_Client
                 case "UU":
                     User.OpponentPairs = data.Substring(3);
                     break;
-            
+                case "EX":
+                    LobbyChange();
+                    break;
             }
         }
 
-        private void cardStatus_Click(object sender, EventArgs e)
+        private async void cardStatus_Click(object sender, EventArgs e)
         {
             if (amountOfMousePresses == 2)
             {
@@ -126,8 +128,24 @@ namespace MatchCards_Client
 
             if (amountOfPairs == 8) 
             {
-                MessageBox.Show("You have won!");
+                LobbyChange();
+                TcpClientSingleton.Client.Send($"GO {User.OpponentIpPort}");
+                await Task.Delay(1000);
+                TcpClientSingleton.Client.Send($"-- [Unranked] {User.Username} won against {User.OpponentUserName}");
             } 
+        }
+
+        private void LobbyChange() 
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(LobbyChange));
+                return;
+            }
+
+            var lobby = new Lobby();
+            lobby.Show();
+            this.Hide();
         }
 
         private void CheckCardMatch()
