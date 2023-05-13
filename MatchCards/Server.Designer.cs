@@ -179,7 +179,7 @@
             this.serverLogTextBox.Multiline = true;
             this.serverLogTextBox.Name = "serverLogTextBox";
             this.serverLogTextBox.ReadOnly = true;
-            this.serverLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.serverLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.serverLogTextBox.Size = new System.Drawing.Size(338, 271);
             this.serverLogTextBox.TabIndex = 12;
             this.serverLogTextBox.TextChanged += new System.EventHandler(this.serverLogTextBox_TextChanged);

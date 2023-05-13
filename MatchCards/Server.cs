@@ -12,8 +12,6 @@ using Microsoft.VisualBasic;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
 using System.Data.SQLite;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using System.Reflection;
 
 namespace MatchCards_Server
 {
@@ -30,7 +28,7 @@ namespace MatchCards_Server
         private SimpleTcpServer server;
 
         private List<Dictionary<string, string>> usersInUnrankedQueue = new List<Dictionary<string, string>>();
-
+        private List<Dictionary<string, string>> usersInRankedQueue = new List<Dictionary<string, string>>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -40,33 +38,38 @@ namespace MatchCards_Server
             server.Events.DataReceived += DataReceived;
         }
 
-        void ClientConnected(object sender, SuperSimpleTcp.ConnectionEventArgs e)
+        private void ClientConnected(object sender, SuperSimpleTcp.ConnectionEventArgs e)
         {
             serverLogTextBox.Text += $"[{e.IpPort}] client connected.... { Environment.NewLine}";
             userList.Items.Add(e.IpPort);
         }
 
-        void ClientDisconnected(object sender, SuperSimpleTcp.ConnectionEventArgs e)
+        private void ClientDisconnected(object sender, SuperSimpleTcp.ConnectionEventArgs e)
         {
             serverLogTextBox.Text += $"[{e.IpPort}] client disconnected: {e.Reason}{Environment.NewLine}";
             userList.Items.Remove(e.IpPort);
         }
 
-        void DataReceived(object sender, DataReceivedEventArgs e)
+        private void DataReceived(object sender, DataReceivedEventArgs e)
         {
             var data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
             var cmdSyntax = data.Substring(0, 2);
 
             switch (cmdSyntax)
             {
+                case "GP":
+                    string userPoints = GetUserPoints(data.Substring(2).Trim());
+                    server.Send(e.IpPort, $"[{e.IpPort}]: SP {userPoints}");
+                    break;
+
                 case "UQ":
-                    Dictionary<string, string> user = new Dictionary<string, string>
+                    Dictionary<string, string> unraknedUser = new Dictionary<string, string>
                     {
                         { "client_port", e.IpPort.ToString() },
                         { "usernameInQueue", data.Substring(2) }
                     };
 
-                    usersInUnrankedQueue.Add(user);
+                    usersInUnrankedQueue.Add(unraknedUser);
 
                     int numberOfUsersInUnrankedQueue = usersInUnrankedQueue.Count();
 
@@ -93,6 +96,15 @@ namespace MatchCards_Server
                         usersInUnrankedQueue.Remove(firstUser);
                         usersInUnrankedQueue.Remove(secondUser);
                     }
+                    break;
+
+                case "RQ":
+                    //Dictionary<string, string[]> rankedUser = new Dictionary<string, string[]>
+                    //{
+                    //    { "client_port", new string[] { e.IpPort.ToString() } },
+                    //    { "usernameInQueue", new string[] { data.Substring(2), data.Substring() } }
+                    //};
+
                     break;
 
                 case "RO":
@@ -137,7 +149,6 @@ namespace MatchCards_Server
                 case "GO":
                     string ipPort = data.Substring(3).Trim();
                     server.Send(ipPort, $"[{ipPort}]: EX");
-
                     break;
             }
         }
@@ -208,6 +219,26 @@ namespace MatchCards_Server
             {
                 CheckLoginInformation(ipPort, username, password);
             }
+        }
+
+        private string GetUserPoints(string username)
+        {
+            string points = null;
+            conn.Open();
+            string sql = "SELECT Points FROM Users WHERE Username = @Username";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+
+            using (SQLiteDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    points = reader["Points"].ToString();
+                }
+            }
+
+            conn.Close();
+            return points;
         }
 
 

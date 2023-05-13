@@ -42,7 +42,7 @@
             this.lostAcceptButton1 = new ReaLTaiizor.Controls.LostAcceptButton();
             this.crownLabel9 = new ReaLTaiizor.Controls.CrownLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.crownLabel10 = new ReaLTaiizor.Controls.CrownLabel();
+            this.pointsLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.lostLabel1 = new ReaLTaiizor.Controls.LostLabel();
             this.welcomeLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -138,7 +138,7 @@
             this.lostLabel4.ForeColor = System.Drawing.Color.White;
             this.lostLabel4.Location = new System.Drawing.Point(10, 6);
             this.lostLabel4.Name = "lostLabel4";
-            this.lostLabel4.Size = new System.Drawing.Size(205, 25);
+            this.lostLabel4.Size = new System.Drawing.Size(129, 25);
             this.lostLabel4.TabIndex = 15;
             this.lostLabel4.Text = "ONLINE PLAYERS";
             // 
@@ -198,22 +198,22 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.crownLabel10);
+            this.panel2.Controls.Add(this.pointsLabel);
             this.panel2.Controls.Add(this.lostLabel1);
             this.panel2.Location = new System.Drawing.Point(405, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(227, 29);
             this.panel2.TabIndex = 19;
             // 
-            // crownLabel10
+            // pointsLabel
             // 
-            this.crownLabel10.AutoSize = true;
-            this.crownLabel10.ForeColor = System.Drawing.Color.White;
-            this.crownLabel10.Location = new System.Drawing.Point(178, 3);
-            this.crownLabel10.Name = "crownLabel10";
-            this.crownLabel10.Size = new System.Drawing.Size(46, 21);
-            this.crownLabel10.TabIndex = 20;
-            this.crownLabel10.Text = "2000";
+            this.pointsLabel.AutoSize = true;
+            this.pointsLabel.ForeColor = System.Drawing.Color.Lime;
+            this.pointsLabel.Location = new System.Drawing.Point(114, 5);
+            this.pointsLabel.Name = "pointsLabel";
+            this.pointsLabel.Size = new System.Drawing.Size(19, 21);
+            this.pointsLabel.TabIndex = 20;
+            this.pointsLabel.Text = "0";
             // 
             // lostLabel1
             // 
@@ -223,7 +223,7 @@
             this.lostLabel1.Name = "lostLabel1";
             this.lostLabel1.Size = new System.Drawing.Size(107, 21);
             this.lostLabel1.TabIndex = 15;
-            this.lostLabel1.Text = "YOUR POINTS";
+            this.lostLabel1.Text = "YOUR POINTS:";
             // 
             // welcomeLabel
             // 
@@ -231,9 +231,9 @@
             this.welcomeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.welcomeLabel.Location = new System.Drawing.Point(3, 3);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(77, 21);
+            this.welcomeLabel.Size = new System.Drawing.Size(87, 21);
             this.welcomeLabel.TabIndex = 21;
-            this.welcomeLabel.Text = "Welcome,";
+            this.welcomeLabel.Text = "WELCOME,";
             // 
             // panel3
             // 
@@ -248,7 +248,7 @@
             // 
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.usernameLabel.Location = new System.Drawing.Point(76, 3);
+            this.usernameLabel.Location = new System.Drawing.Point(84, 3);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(81, 21);
             this.usernameLabel.TabIndex = 22;
@@ -300,7 +300,7 @@
         private ReaLTaiizor.Controls.CrownLabel crownLabel9;
         private System.Windows.Forms.Panel panel2;
         private ReaLTaiizor.Controls.LostLabel lostLabel1;
-        private ReaLTaiizor.Controls.CrownLabel crownLabel10;
+        private ReaLTaiizor.Controls.CrownLabel pointsLabel;
         private System.Windows.Forms.ListBox onlineUserList;
         private ReaLTaiizor.Controls.CrownLabel welcomeLabel;
         private System.Windows.Forms.Panel panel3;

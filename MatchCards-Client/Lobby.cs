@@ -21,12 +21,20 @@ namespace MatchCards_Client
             InitializeComponent();
         }
 
-        private void Game_Load(object sender, EventArgs e)
+        private async void Game_Load(object sender, EventArgs e)
         {
             clientChatBox.Text += $"Connected To Server... {Environment.NewLine}";
             TcpClientSingleton.Client.Events.DataReceived += DataReceived;
+
             usernameLabel.Text = User.Username;
-            TcpClientSingleton.Client.Send($"RO");
+
+            await Task.Delay(500);
+
+            TcpClientSingleton.Client.Send($"GP {User.Username}");
+
+            await Task.Delay(500);
+
+            TcpClientSingleton.Client.Send("RO");
         }
 
         private void startServerButton_Click(object sender, EventArgs e)
@@ -61,17 +69,22 @@ namespace MatchCards_Client
         private void DataReceived(object sender, DataReceivedEventArgs e)
         {
             var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
-
             string cmdSyntax = data.Substring(0, 2);
             string usernameList = data.Substring(3);
 
             switch (cmdSyntax) 
             {
+                case "SP":
+                    User.Points = data.Substring(2);
+                    pointsLabel.Text = User.Points;
+                    break;
+
                 case "!O":
                 case "!R":
                 case "!F":
                     GetOnlinePlayers(usernameList);
                     break;
+
                 case "UG":
                     int userLength = int.Parse(data.Substring(4, 1));
                     string username = data.Substring(8, userLength);
@@ -103,13 +116,22 @@ namespace MatchCards_Client
         }
 
 
-        private void lostAcceptButton1_Click(object sender, EventArgs e)
+        private async void lostAcceptButton1_Click(object sender, EventArgs e)
         {
-            if (TcpClientSingleton.Client.IsConnected) 
+            lostAcceptButton1.Text = "ALREADY IN THE QUEUE";
+            lostAcceptButton1.Enabled = false;
+            lostAcceptButton2.Enabled = false;
+
+            if (TcpClientSingleton.Client.IsConnected)
             {
+                TcpClientSingleton.Client.Send($"RQ {User.Username} {User.Points}");
                 clientChatBox.Text += $"You are in the ranked queue, waiting for people {Environment.NewLine}";
+                clientChatBox.Text += $"+50 Poins for a win {Environment.NewLine}";
+                clientChatBox.Text += $"-50 Poins for a loss {Environment.NewLine}";
+                await Task.Delay(1000);
+                TcpClientSingleton.Client.Send($"-- {User.Username} is in the Ranked queue");
             }
-            else 
+            else
             {
                 MessageBox.Show("No connection to server");
             }
