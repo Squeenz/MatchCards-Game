@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientRegister));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.userErrorLabel = new System.Windows.Forms.Label();
             this.usernameBox = new ReaLTaiizor.Controls.CrownTextBox();
             this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -45,7 +46,6 @@
             this.lostAcceptButton1 = new ReaLTaiizor.Controls.LostAcceptButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.backButton = new ReaLTaiizor.Controls.LostAcceptButton();
-            this.userErrorLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hopePictureBox1)).BeginInit();
@@ -64,6 +64,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(187, 58);
             this.panel2.TabIndex = 0;
+            // 
+            // userErrorLabel
+            // 
+            this.userErrorLabel.AutoSize = true;
+            this.userErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.userErrorLabel.Location = new System.Drawing.Point(108, 6);
+            this.userErrorLabel.Name = "userErrorLabel";
+            this.userErrorLabel.Size = new System.Drawing.Size(76, 13);
+            this.userErrorLabel.TabIndex = 8;
+            this.userErrorLabel.Text = "Already exists";
+            this.userErrorLabel.Visible = false;
             // 
             // usernameBox
             // 
@@ -248,18 +260,6 @@
             this.backButton.TabIndex = 5;
             this.backButton.Text = "BACK";
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
-            // userErrorLabel
-            // 
-            this.userErrorLabel.AutoSize = true;
-            this.userErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.userErrorLabel.Location = new System.Drawing.Point(108, 6);
-            this.userErrorLabel.Name = "userErrorLabel";
-            this.userErrorLabel.Size = new System.Drawing.Size(76, 13);
-            this.userErrorLabel.TabIndex = 8;
-            this.userErrorLabel.Text = "Already exists";
-            this.userErrorLabel.Visible = false;
             // 
             // ClientRegister
             // 

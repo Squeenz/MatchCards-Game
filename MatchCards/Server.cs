@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
 using System.Data.SQLite;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MatchCards_Server
 {
@@ -119,6 +118,13 @@ namespace MatchCards_Server
                     ProcessCreateOrUpdateUser(data, e.IpPort, false);
                     break;
 
+                case "DN":
+                    List<string> usernames = GetAllUsernamesFromDB();
+                    string joinedUsernames = string.Join(", ", usernames);
+
+                    server.Send(e.IpPort, $"[{e.IpPort}]: UN {joinedUsernames}");
+                    break;
+
                 case "GO":
                     string ipPort = data.Substring(3).Trim();
                     server.Send(ipPort, $"[{ipPort}]: EX");
@@ -225,6 +231,26 @@ namespace MatchCards_Server
                 CheckLoginInformation(ipPort, username, password);
             }
         }
+
+        private List<string> GetAllUsernamesFromDB()
+        {
+            conn.Open();
+            string sql = "SELECT Username FROM Users";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            List<string> usernames = new List<string>();
+
+            while (reader.Read())
+            {
+                string username = reader.GetString(0);
+                usernames.Add(username);
+            }
+
+            conn.Close();
+
+            return usernames;
+        }
+
 
         private void RemoveUserPoints(string username)
         {

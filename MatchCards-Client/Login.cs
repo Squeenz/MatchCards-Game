@@ -28,9 +28,7 @@ namespace MatchCards_ClientLogin
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
         {
-            var register = new ClientRegister();
-            register.Show();
-            this.Hide();
+            RegisterChange();
         }
 
         private void ClientLogin_Load(object sender, EventArgs e)
@@ -79,10 +77,20 @@ namespace MatchCards_ClientLogin
             {
                 MessageBox.Show("User already online");
             }
-            else
+        }
+
+        private void RegisterChange()
+        {
+            if (InvokeRequired)
             {
-                MessageBox.Show("Incorrect login information");
+                Invoke(new Action(RegisterChange));
+                return;
             }
+
+            //TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
+            var register = new ClientRegister();
+            register.Show();
+            this.Hide();
         }
 
         private void LobbyChange()

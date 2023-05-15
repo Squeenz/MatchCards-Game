@@ -219,6 +219,7 @@
             this.lostLabel3.Size = new System.Drawing.Size(92, 27);
             this.lostLabel3.TabIndex = 15;
             this.lostLabel3.Text = "ACTIONS";
+            this.lostLabel3.Visible = false;
             // 
             // panel4
             // 
@@ -259,6 +260,7 @@
             this.lostAcceptButton15.Size = new System.Drawing.Size(145, 40);
             this.lostAcceptButton15.TabIndex = 9;
             this.lostAcceptButton15.Text = "WARN";
+            this.lostAcceptButton15.Visible = false;
             // 
             // lostAcceptButton14
             // 
@@ -273,6 +275,7 @@
             this.lostAcceptButton14.Size = new System.Drawing.Size(145, 40);
             this.lostAcceptButton14.TabIndex = 8;
             this.lostAcceptButton14.Text = "RESET";
+            this.lostAcceptButton14.Visible = false;
             // 
             // lostAcceptButton12
             // 
@@ -287,6 +290,7 @@
             this.lostAcceptButton12.Size = new System.Drawing.Size(145, 38);
             this.lostAcceptButton12.TabIndex = 6;
             this.lostAcceptButton12.Text = "KICK";
+            this.lostAcceptButton12.Visible = false;
             // 
             // lostAcceptButton13
             // 
@@ -301,6 +305,7 @@
             this.lostAcceptButton13.Size = new System.Drawing.Size(145, 38);
             this.lostAcceptButton13.TabIndex = 7;
             this.lostAcceptButton13.Text = "BAN";
+            this.lostAcceptButton13.Visible = false;
             // 
             // lostLabel4
             // 
