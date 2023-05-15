@@ -121,6 +121,8 @@ namespace MatchCards_Client
                 return;
             }
 
+            TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
+
             var game = new Game();
             game.Show();
             this.Hide();

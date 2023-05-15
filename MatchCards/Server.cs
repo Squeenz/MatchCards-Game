@@ -23,6 +23,8 @@ namespace MatchCards_Server
 
         private SimpleTcpServer server;
 
+        private object matchmakingLock = new object();
+
         private List<Dictionary<string, string>> usersInUnrankedQueue = new List<Dictionary<string, string>>();
         private List<Dictionary<string, string>> usersInRankedQueue = new List<Dictionary<string, string>>();
 
@@ -140,28 +142,26 @@ namespace MatchCards_Server
 
             sendMessageToAllClients(ipPort, $"-- Players in {(ranked ? "ranked" : "unranked")} queue: {numberOfUsersInQueue}");
 
-            if (numberOfUsersInQueue > 2)
+            if (numberOfUsersInQueue >= 2)
             {
-                List<Dictionary<string, string>> selectedPlayers = getRandomPlayersFromQueue(playerList);
+                List<Dictionary<string, string>> selectedPlayers;
 
-                PlayerMatchmaking(server, selectedPlayers[0], selectedPlayers[1], ranked);
+                lock (matchmakingLock) // Lock the block to ensure synchronization
+                {
+                    if (numberOfUsersInQueue >= 2)
+                    {
+                        selectedPlayers = getRandomPlayersFromQueue(playerList);
 
-                playerList.Remove(selectedPlayers[0]);
-                playerList.Remove(selectedPlayers[1]);
-            }
-            else if (numberOfUsersInQueue == 2)
-            {
-                Dictionary<string, string> firstUser = playerList[0];
-                Dictionary<string, string> secondUser = playerList[1];
+                        PlayerMatchmaking(server, selectedPlayers[0], selectedPlayers[1], ranked);
 
-                PlayerMatchmaking(server, firstUser, secondUser, ranked);
-
-                playerList.Remove(firstUser);
-                playerList.Remove(secondUser);
+                        playerList.Remove(selectedPlayers[0]);
+                        playerList.Remove(selectedPlayers[1]);
+                    }
+                }
             }
         }
 
-        private void PlayerMatchmaking(SimpleTcpServer server, Dictionary<string, string> user1, Dictionary<string, string> user2, bool ranked)
+        private async void PlayerMatchmaking(SimpleTcpServer server, Dictionary<string, string> user1, Dictionary<string, string> user2, bool ranked)
         {
             string clientPort1 = user1["client_port"];
             string usernameInQueue1 = user1["usernameInQueue"];
@@ -169,6 +169,7 @@ namespace MatchCards_Server
             string clientPort2 = user2["client_port"];
             string usernameInQueue2 = user2["usernameInQueue"];
 
+            await Task.Delay(1000);
             server.Send(clientPort1, $"[{clientPort1}]: {(ranked ? "RG" : "UG")} [{usernameInQueue2.Trim().Length}] {usernameInQueue2} {clientPort2}");
             server.Send(clientPort2, $"[{clientPort2}]: {(ranked ? "RG" : "UG")} [{usernameInQueue1.Trim().Length}] {usernameInQueue1} {clientPort1}");
         }

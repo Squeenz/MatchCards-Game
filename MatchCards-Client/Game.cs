@@ -130,6 +130,7 @@ namespace MatchCards_Client
                 TcpClientSingleton.Client.Send($"RW {User.Username}");
                 await Task.Delay(100);
                 TcpClientSingleton.Client.Send($"RL {User.OpponentUserName}");
+                await Task.Delay(100);
                 GameOver();
             }
             else if (amountOfPairs == 8 && User.TypeOfGame == "Unranked") 
@@ -142,10 +143,14 @@ namespace MatchCards_Client
         private async void GameOver() 
         {
             LobbyChange();
-            await Task.Delay(1000);
+            await Task.Delay(100);
             TcpClientSingleton.Client.Send($"GO {User.OpponentIpPort}");
-            await Task.Delay(1000);
+            await Task.Delay(100);
             TcpClientSingleton.Client.Send($"-- {(User.TypeOfGame == "Ranked" ? "[Ranked]" : "[Unranked]")} {User.Username} won against {User.OpponentUserName}");
+            User.OpponentIpPort = "";
+            User.OpponentUserName = "";
+            User.OpponentPairs = "";
+            User.TypeOfGame = "";
         }
 
         private void LobbyChange()
@@ -155,6 +160,8 @@ namespace MatchCards_Client
                 Invoke(new Action(LobbyChange));
                 return;
             }
+
+            TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
 
             var lobby = new Lobby();
             lobby.Show();
