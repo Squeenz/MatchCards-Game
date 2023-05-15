@@ -96,7 +96,6 @@
             // 
             this.serverIPText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
             this.serverIPText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.serverIPText.Enabled = false;
             this.serverIPText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.serverIPText.Location = new System.Drawing.Point(79, 1);
             this.serverIPText.Name = "serverIPText";

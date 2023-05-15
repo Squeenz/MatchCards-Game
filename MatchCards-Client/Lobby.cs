@@ -126,7 +126,6 @@ namespace MatchCards_Client
             this.Hide();
         }
 
-
         private async void lostAcceptButton1_Click(object sender, EventArgs e)
         {
             lostAcceptButton1.Text = "ALREADY IN THE QUEUE";

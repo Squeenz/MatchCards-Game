@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,16 +41,21 @@ namespace MatchCards_ClientLogin
 
         }
 
-        private void closeThisAndGoBack()
+        private void backButton_Click(object sender, EventArgs e)
         {
             var login = new ClientLogin();
             login.Show();
             this.Hide();
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private byte[] CalculateSHA256(string str)
         {
-            closeThisAndGoBack();
+            SHA256 sha256 = SHA256Managed.Create();
+            byte[] hashValue;
+            UTF8Encoding objUtf8 = new UTF8Encoding();
+            hashValue = sha256.ComputeHash(objUtf8.GetBytes(str));
+
+            return hashValue;
         }
 
         private void lostAcceptButton1_Click(object sender, EventArgs e)
@@ -67,7 +73,6 @@ namespace MatchCards_ClientLogin
             {
                 passwordLabel1.Visible = true;
             }
-            //Need to encrypt the password
             else
             {
                 password = passwordOneBox.Text;
@@ -75,20 +80,22 @@ namespace MatchCards_ClientLogin
 
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-
                 if (TcpClientSingleton.Client.IsConnected)
                 {
-                    TcpClientSingleton.Client.Send($"!C [{username.Count()}] {username} : {password}");
+                    byte[] passwordHash = CalculateSHA256(password);
+                    string hashedPassword = BitConverter.ToString(passwordHash).Replace("-", "").ToLower();
+
+                    TcpClientSingleton.Client.Send($"!C [{username.Length}] {username} : {hashedPassword}");
                 }
                 else
                 {
                     MessageBox.Show("No connection to server");
                 }
-               
-                //client.Send($"!!L {username} : {password}");
             }
 
-            closeThisAndGoBack();
+            var login = new ClientLogin();
+            login.Show();
+            this.Hide();
         }
     }
 }

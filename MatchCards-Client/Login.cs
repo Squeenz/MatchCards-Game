@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 using MatchCards_Client;
 using ReaLTaiizor.Forms;
@@ -71,15 +66,20 @@ namespace MatchCards_ClientLogin
         {
             var data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
             int userLenght = int.Parse(data.Substring(1, 1));   
-            var username = data.Substring(6, userLenght);
-            var isValid = data.Substring(6 + userLenght + 3);
+            string username = data.Substring(6, userLenght);
+            string isValid = data.Substring(6 + userLenght + 3, 5);
+            string isOnline = data.Substring(6 + userLenght + 10).Trim();
 
-            if (isValid == "VALID")
+            if (isValid == "VALID" && isOnline == "0")
             {
                 User.Username = username;
                 LobbyChange();
             }
-            else if (isValid == "INVALID")
+            else if (isValid == "VALID" && isOnline == "1")
+            {
+                MessageBox.Show("User already online");
+            }
+            else
             {
                 MessageBox.Show("Incorrect login information");
             }
@@ -93,18 +93,36 @@ namespace MatchCards_ClientLogin
                 return;
             }
 
+            TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
             var lobby = new Lobby();
             lobby.Show();
             this.Hide();
         }
 
+        private byte[] CalculateSHA256(string str)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            byte[] hashValue;
+            UTF8Encoding objUtf8 = new UTF8Encoding();
+            hashValue = sha256.ComputeHash(objUtf8.GetBytes(str));
+
+            return hashValue;
+        }
 
         private void startServerButton_Click(object sender, EventArgs e)
         {
             string username = usernameBox.Text;
             string password = passwordBox.Text;
 
-            TcpClientSingleton.Client.Send($"!L [{username.Count()}] {username} : {password}");
+            byte[] passwordHash = CalculateSHA256(password);
+            string hashedPassword = BitConverter.ToString(passwordHash).Replace("-", "").ToLower();
+
+            TcpClientSingleton.Client.Send($"!L [{username.Count()}] {username} : {hashedPassword}");
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

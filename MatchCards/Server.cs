@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
 using System.Data.SQLite;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MatchCards_Server
 {
@@ -131,10 +127,10 @@ namespace MatchCards_Server
         private void MatchmakingLogic(List<Dictionary<string, string>> playerList, string data, string ipPort, bool ranked) 
         {
             Dictionary<string, string> user = new Dictionary<string, string>
-                    {
-                        { "client_port", ipPort.ToString() },
-                        { "usernameInQueue", data.Substring(2) }
-                    };
+            {
+                { "client_port", ipPort.ToString() },
+                { "usernameInQueue", data.Substring(2) }
+            };
 
             playerList.Add(user);
 
@@ -146,7 +142,7 @@ namespace MatchCards_Server
 
             if (numberOfUsersInQueue > 2)
             {
-                List<Dictionary<string, string>> selectedPlayers = getRandomPlayersFromQueue(playerList, ranked);
+                List<Dictionary<string, string>> selectedPlayers = getRandomPlayersFromQueue(playerList);
 
                 PlayerMatchmaking(server, selectedPlayers[0], selectedPlayers[1], ranked);
 
@@ -187,30 +183,26 @@ namespace MatchCards_Server
             }
         }
 
-        private List<Dictionary<string, string>> getRandomPlayersFromQueue(List<Dictionary<string, string>> list, bool rankedOrUnranked)
+        private List<Dictionary<string, string>> getRandomPlayersFromQueue(List<Dictionary<string, string>> list)
         {
             List<Dictionary<string, string>> twoGamePlayers = new List<Dictionary<string, string>>();
 
             Random randomPick = new Random();
 
-            if (rankedOrUnranked == false)
+            // Select two random players
+            for (int i = 0; i < 2; i++)
             {
-                // Select two random players
-                for (int i = 0; i < 2; i++)
-                {
-                    // Generate a random index within the range of the list
-                    int randomIndex = randomPick.Next(0, list.Count);
+                // Generate a random index within the range of the list
+                int randomIndex = randomPick.Next(0, list.Count);
 
-                    // Get the randomly selected player from the list
-                    Dictionary<string, string> selectedPlayer = list[randomIndex];
+                // Get the randomly selected player from the list
+                Dictionary<string, string> selectedPlayer = list[randomIndex];
 
-                    // Add the selected player to the twoGamePlayers list
-                    twoGamePlayers.Add(selectedPlayer);
+                // Add the selected player to the twoGamePlayers list
+                twoGamePlayers.Add(selectedPlayer);
 
-                    // Remove the selected player from the userInUnrankedQueue list
-                    list.RemoveAt(randomIndex);
-                }
-
+                // Remove the selected player from the userInUnrankedQueue list
+                list.RemoveAt(randomIndex);
             }
 
             return twoGamePlayers;
@@ -366,6 +358,25 @@ namespace MatchCards_Server
                 }
             }
         }
+        private string CheckIfUserAlreadyIsOnline(string username)
+        {
+            string online = null;
+            conn.Open();
+            string sql = "SELECT Online FROM Users WHERE Username = @Username";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+
+            using (SQLiteDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    online = reader["Online"].ToString();
+                }
+            }
+
+            conn.Close();
+            return online;
+        }
 
         private void CheckLoginInformation(string ipPort, string username, string password)
         {
@@ -374,13 +385,12 @@ namespace MatchCards_Server
             SQLiteCommand cmd = new SQLiteCommand(sql, conn);
             cmd.Parameters.AddWithValue("@Username", username);
             cmd.Parameters.AddWithValue("@Password", password);
-
             int count = Convert.ToInt32(cmd.ExecuteScalar());
             conn.Close();
 
             if (count > 0)
             {
-                server.Send(ipPort, $"[{username.Count()}] : {username} : VALID");
+                server.Send(ipPort, $"[{username.Count()}] : {username} : VALID : {CheckIfUserAlreadyIsOnline(username)}");
                 UpdateLoginStatus(ipPort, username, true);
             }
             else

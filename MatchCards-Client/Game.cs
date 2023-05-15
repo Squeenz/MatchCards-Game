@@ -120,8 +120,6 @@ namespace MatchCards_Client
                 }
             }
 
-            //Send a message to server with new pair information
-
             TcpClientSingleton.Client.Send($"UI {amountOfPairs} {User.OpponentIpPort}");
 
             localNoOfPairs.Text = amountOfPairs.ToString();
@@ -150,7 +148,7 @@ namespace MatchCards_Client
             TcpClientSingleton.Client.Send($"-- {(User.TypeOfGame == "Ranked" ? "[Ranked]" : "[Unranked]")} {User.Username} won against {User.OpponentUserName}");
         }
 
-        private void LobbyChange() 
+        private void LobbyChange()
         {
             if (InvokeRequired)
             {
