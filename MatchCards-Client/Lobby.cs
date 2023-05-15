@@ -86,13 +86,14 @@ namespace MatchCards_Client
                     break;
 
                 case "UG":
-                    int userLength = int.Parse(data.Substring(4, 1));
-                    string username = data.Substring(8, userLength);
-                    string ipPort = data.Substring(8 + userLength + 1);
+                    User.TypeOfGame = "Unranked";
+                    SetOpponentData(data);
+                    GameChange();
+                    break;
 
-                    User.OpponentIpPort = ipPort;
-                    User.OpponentUserName = username;
-
+                case "RG":
+                    User.TypeOfGame = "Ranked";
+                    SetOpponentData(data);
                     GameChange();
                     break;
 
@@ -100,6 +101,16 @@ namespace MatchCards_Client
                     clientChatBox.Text += data;
                     break;
             }
+        }
+
+        private void SetOpponentData(string data)
+        {
+            int userLength = int.Parse(data.Substring(4, 1));
+            string username = data.Substring(8, userLength);
+            string ipPort = data.Substring(8 + userLength + 1);
+
+            User.OpponentIpPort = ipPort;
+            User.OpponentUserName = username;
         }
 
         private void GameChange()
@@ -124,7 +135,7 @@ namespace MatchCards_Client
 
             if (TcpClientSingleton.Client.IsConnected)
             {
-                TcpClientSingleton.Client.Send($"RQ {User.Username} {User.Points}");
+                TcpClientSingleton.Client.Send($"RQ {User.Username}");
                 clientChatBox.Text += $"You are in the ranked queue, waiting for people {Environment.NewLine}";
                 clientChatBox.Text += $"+50 Poins for a win {Environment.NewLine}";
                 clientChatBox.Text += $"-50 Poins for a loss {Environment.NewLine}";

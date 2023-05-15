@@ -15,5 +15,6 @@ namespace MatchCards_Client
         public static string OpponentUserName { get; set; }
         public static string OpponentPairs { get; set; }
         public static string Points { get; set; }
+        public static string TypeOfGame { get; set;}
     }
 }

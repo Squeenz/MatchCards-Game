@@ -63,48 +63,11 @@ namespace MatchCards_Server
                     break;
 
                 case "UQ":
-                    Dictionary<string, string> unraknedUser = new Dictionary<string, string>
-                    {
-                        { "client_port", e.IpPort.ToString() },
-                        { "usernameInQueue", data.Substring(2) }
-                    };
-
-                    usersInUnrankedQueue.Add(unraknedUser);
-
-                    int numberOfUsersInUnrankedQueue = usersInUnrankedQueue.Count();
-
-                    serverLogTextBox.Text += $"Players in unranked queue: {numberOfUsersInUnrankedQueue}{Environment.NewLine}";
-
-                    sendMessageToAllClients(e.IpPort, $"-- Players in unranked queue: {numberOfUsersInUnrankedQueue}");
-
-                    if (numberOfUsersInUnrankedQueue > 2)
-                    {
-                        List<Dictionary<string, string>> selectedPlayers = getRandomPlayersFromQueue(usersInUnrankedQueue, false);
-
-                        SendMatchmakingMessage(server, selectedPlayers[0], selectedPlayers[1]);
-
-                        usersInUnrankedQueue.Remove(selectedPlayers[0]);
-                        usersInUnrankedQueue.Remove(selectedPlayers[1]);
-                    }
-                    else if (numberOfUsersInUnrankedQueue == 2)
-                    {
-                        Dictionary<string, string> firstUser = usersInUnrankedQueue[0];
-                        Dictionary<string, string> secondUser = usersInUnrankedQueue[1];
-
-                        SendMatchmakingMessage(server, firstUser, secondUser);
-
-                        usersInUnrankedQueue.Remove(firstUser);
-                        usersInUnrankedQueue.Remove(secondUser);
-                    }
+                    MatchmakingLogic(usersInUnrankedQueue, data, e.IpPort, false);
                     break;
 
                 case "RQ":
-                    //Dictionary<string, string[]> rankedUser = new Dictionary<string, string[]>
-                    //{
-                    //    { "client_port", new string[] { e.IpPort.ToString() } },
-                    //    { "usernameInQueue", new string[] { data.Substring(2), data.Substring() } }
-                    //};
-
+                    MatchmakingLogic(usersInRankedQueue, data, e.IpPort, true);
                     break;
 
                 case "RO":
@@ -116,6 +79,18 @@ namespace MatchCards_Server
                         string onlineUsersString = String.Join(", ", onlineUsers);
                         server.Send(port, $"[{e.IpPort}]: !R {onlineUsersString}");
                     }
+                    break;
+
+                case "RW":
+                    string user = data.Substring(2).Trim();
+                    serverLogTextBox.Text += $"[{e.IpPort}]: {user} has been given +50 points {Environment.NewLine}";
+                    AddUserPoints(user);
+                    break;
+
+                case "RL":
+                    string lossingUser = data.Substring(2).Trim();
+                    serverLogTextBox.Text += $"[{e.IpPort}]: {lossingUser} has been given -50 points {Environment.NewLine}";
+                    RemoveUserPoints(lossingUser);
                     break;
 
                 case "UI":
@@ -153,7 +128,44 @@ namespace MatchCards_Server
             }
         }
 
-        private void SendMatchmakingMessage(SimpleTcpServer server, Dictionary<string, string> user1, Dictionary<string, string> user2)
+        private void MatchmakingLogic(List<Dictionary<string, string>> playerList, string data, string ipPort, bool ranked) 
+        {
+            Dictionary<string, string> user = new Dictionary<string, string>
+                    {
+                        { "client_port", ipPort.ToString() },
+                        { "usernameInQueue", data.Substring(2) }
+                    };
+
+            playerList.Add(user);
+
+            int numberOfUsersInQueue = playerList.Count();
+
+            serverLogTextBox.Text += $"Players in {(ranked ? "ranked" : "unranked")} queue: {numberOfUsersInQueue}{Environment.NewLine}";
+
+            sendMessageToAllClients(ipPort, $"-- Players in {(ranked ? "ranked" : "unranked")} queue: {numberOfUsersInQueue}");
+
+            if (numberOfUsersInQueue > 2)
+            {
+                List<Dictionary<string, string>> selectedPlayers = getRandomPlayersFromQueue(playerList, ranked);
+
+                PlayerMatchmaking(server, selectedPlayers[0], selectedPlayers[1], ranked);
+
+                playerList.Remove(selectedPlayers[0]);
+                playerList.Remove(selectedPlayers[1]);
+            }
+            else if (numberOfUsersInQueue == 2)
+            {
+                Dictionary<string, string> firstUser = playerList[0];
+                Dictionary<string, string> secondUser = playerList[1];
+
+                PlayerMatchmaking(server, firstUser, secondUser, ranked);
+
+                playerList.Remove(firstUser);
+                playerList.Remove(secondUser);
+            }
+        }
+
+        private void PlayerMatchmaking(SimpleTcpServer server, Dictionary<string, string> user1, Dictionary<string, string> user2, bool ranked)
         {
             string clientPort1 = user1["client_port"];
             string usernameInQueue1 = user1["usernameInQueue"];
@@ -161,8 +173,8 @@ namespace MatchCards_Server
             string clientPort2 = user2["client_port"];
             string usernameInQueue2 = user2["usernameInQueue"];
 
-            server.Send(clientPort1, $"[{clientPort1}]: UG [{usernameInQueue2.Trim().Length}] {usernameInQueue2} {clientPort2}");
-            server.Send(clientPort2, $"[{clientPort2}]: UG [{usernameInQueue1.Trim().Length}] {usernameInQueue1} {clientPort1}");
+            server.Send(clientPort1, $"[{clientPort1}]: {(ranked ? "RG" : "UG")} [{usernameInQueue2.Trim().Length}] {usernameInQueue2} {clientPort2}");
+            server.Send(clientPort2, $"[{clientPort2}]: {(ranked ? "RG" : "UG")} [{usernameInQueue1.Trim().Length}] {usernameInQueue1} {clientPort1}");
         }
 
 
@@ -219,6 +231,43 @@ namespace MatchCards_Server
             {
                 CheckLoginInformation(ipPort, username, password);
             }
+        }
+
+        private void RemoveUserPoints(string username)
+        {
+            string currentUserPoints = GetUserPoints(username);
+            int newUserPoints = 0;
+
+            if (int.Parse(currentUserPoints) == 0) 
+            {
+                newUserPoints = 0;
+            }
+            else
+            {
+                newUserPoints = int.Parse(currentUserPoints) - 50;
+            }
+
+            conn.Open();
+            string sql = "UPDATE Users SET Points = @NewPoints WHERE Username = @Username";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@NewPoints", newUserPoints);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        private void AddUserPoints(string username) 
+        {
+            string currentUserPoints = GetUserPoints(username);
+            int newUserPoints = int.Parse(currentUserPoints) + 50;
+
+            conn.Open();
+            string sql = "UPDATE Users SET Points = @NewPoints WHERE Username = @Username";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@NewPoints", newUserPoints);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         private string GetUserPoints(string username)

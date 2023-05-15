@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,14 +127,27 @@ namespace MatchCards_Client
             localNoOfPairs.Text = amountOfPairs.ToString();
             noOfPairsOnline.Text = User.OpponentPairs;
 
-            if (amountOfPairs == 8) 
+            if (amountOfPairs == 8 && User.TypeOfGame == "Ranked")
             {
-                LobbyChange();
-                await Task.Delay(1000);
-                TcpClientSingleton.Client.Send($"GO {User.OpponentIpPort}");
-                await Task.Delay(1000);
-                TcpClientSingleton.Client.Send($"-- [Unranked] {User.Username} won against {User.OpponentUserName}");
-            } 
+                TcpClientSingleton.Client.Send($"RW {User.Username}");
+                await Task.Delay(100);
+                TcpClientSingleton.Client.Send($"RL {User.OpponentUserName}");
+                GameOver();
+            }
+            else if (amountOfPairs == 8 && User.TypeOfGame == "Unranked") 
+            {
+                GameOver();  
+            }
+
+        }
+
+        private async void GameOver() 
+        {
+            LobbyChange();
+            await Task.Delay(1000);
+            TcpClientSingleton.Client.Send($"GO {User.OpponentIpPort}");
+            await Task.Delay(1000);
+            TcpClientSingleton.Client.Send($"-- {(User.TypeOfGame == "Ranked" ? "[Ranked]" : "[Unranked]")} {User.Username} won against {User.OpponentUserName}");
         }
 
         private void LobbyChange() 
