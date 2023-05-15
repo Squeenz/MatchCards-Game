@@ -25,6 +25,7 @@ C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\bin\Debug\ReaLT
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards-Client.csproj.AssemblyReference.cache
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards-Client.csproj.SuggestedBindingRedirects.cache
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards_Client.Game.resources
+C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards_Client.HelpGuide.resources
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards_ClientLogin.ClientRegister.resources
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards_ClientLogin.ClientLogin.resources
 C:\Users\YOGI\Documents\GitHub\MatchCards-Game\MatchCards-Client\obj\Debug\MatchCards_Client.Lobby.resources

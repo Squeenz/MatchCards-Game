@@ -195,5 +195,11 @@ namespace MatchCards_Client
         {
 
         }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            var help = new HelpGuide();
+            help.Show();
+        }
     }
 }

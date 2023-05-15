@@ -47,6 +47,7 @@
             this.welcomeLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
+            this.help = new ReaLTaiizor.Controls.LostLabel();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -255,11 +256,23 @@
             this.usernameLabel.Text = "Username";
             this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
             // 
+            // help
+            // 
+            this.help.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.help.ForeColor = System.Drawing.Color.White;
+            this.help.Location = new System.Drawing.Point(534, 5);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(44, 23);
+            this.help.TabIndex = 23;
+            this.help.Text = "HELP";
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 503);
+            this.Controls.Add(this.help);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.crownLabel9);
@@ -305,6 +318,7 @@
         private ReaLTaiizor.Controls.CrownLabel welcomeLabel;
         private System.Windows.Forms.Panel panel3;
         private ReaLTaiizor.Controls.CrownLabel usernameLabel;
+        private ReaLTaiizor.Controls.LostLabel help;
     }
 }
 

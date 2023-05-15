@@ -40,6 +40,7 @@
             this.startServerButton = new ReaLTaiizor.Controls.LostAcceptButton();
             this.lostAcceptButton1 = new ReaLTaiizor.Controls.LostAcceptButton();
             this.hopePictureBox1 = new ReaLTaiizor.Controls.HopePictureBox();
+            this.help = new ReaLTaiizor.Controls.LostLabel();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -183,11 +184,23 @@
             this.hopePictureBox1.TabStop = false;
             this.hopePictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
+            // help
+            // 
+            this.help.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.help.ForeColor = System.Drawing.Color.White;
+            this.help.Location = new System.Drawing.Point(304, 5);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(44, 23);
+            this.help.TabIndex = 2;
+            this.help.Text = "HELP";
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // ClientLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 278);
+            this.Controls.Add(this.help);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Image = ((System.Drawing.Image)(resources.GetObject("$this.Image")));
             this.MaximizeBox = false;
@@ -218,6 +231,7 @@
         private ReaLTaiizor.Controls.LostAcceptButton startServerButton;
         private ReaLTaiizor.Controls.LostAcceptButton lostAcceptButton1;
         private ReaLTaiizor.Controls.HopePictureBox hopePictureBox1;
+        private ReaLTaiizor.Controls.LostLabel help;
     }
 }
 

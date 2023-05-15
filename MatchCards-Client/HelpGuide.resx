@@ -117,6 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="crownTextBox1.Text" xml:space="preserve">
+    <value>====================================
+This guide will walk you through how to play the game.
+====================================
+1.Create an account, If the username already exisits you won't be able to make an account
+
+2.Login to the account you created. If you can't remmember the details just make another account.
+
+3.Decide which type of match you want to play: 
+[Unranked] Points don't get affected
+[Ranked] Points get affected.
+
+4.Select desired match and wait for people to join the queue. There has to be a minimum of two palyers in the queue to play.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

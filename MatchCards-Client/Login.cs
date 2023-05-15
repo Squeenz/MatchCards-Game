@@ -132,5 +132,11 @@ namespace MatchCards_ClientLogin
         {
             Application.Exit();
         }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            var help = new HelpGuide();
+            help.Show();
+        }
     }
 }
