@@ -33,11 +33,11 @@ namespace MatchCards_ClientLogin
 
         private void ClientLogin_Load(object sender, EventArgs e)
         {
+            TcpClientSingleton.Client = new SimpleTcpClient("127.0.0.1:8910");
+            TcpClientSingleton.Client.Events.DataReceived += DataReceived;
+
             if (TcpClientSingleton.Client == null)
             {
-                TcpClientSingleton.Client = new SimpleTcpClient("127.0.0.1:8910");
-                TcpClientSingleton.Client.Events.DataReceived += DataReceived;
-
                 try
                 {
                     TcpClientSingleton.Client.Connect();
@@ -87,7 +87,7 @@ namespace MatchCards_ClientLogin
                 return;
             }
 
-            //TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
+            TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
             var register = new ClientRegister();
             register.Show();
             this.Hide();
@@ -102,6 +102,7 @@ namespace MatchCards_ClientLogin
             }
 
             TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
+
             var lobby = new Lobby();
             lobby.Show();
             this.Hide();

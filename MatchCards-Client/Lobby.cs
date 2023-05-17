@@ -192,11 +192,10 @@ namespace MatchCards_Client
             }
             finally
             {
+                await Task.Delay(1000);
                 TcpClientSingleton.Client.Disconnect();
+                Application.Exit();
             }
-
-            await Task.Delay(1000);
-            Application.Exit();
         }
 
         private async void lostAcceptButton2_Click(object sender, EventArgs e)

@@ -66,9 +66,7 @@ namespace MatchCards_ClientLogin
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            var login = new ClientLogin();
-            login.Show();
-            this.Hide();
+            LoginChange();
         }
 
         private byte[] CalculateSHA256(string str)
@@ -135,7 +133,7 @@ namespace MatchCards_ClientLogin
 
                     TcpClientSingleton.Client.Send($"!C [{username.Length}] {username} : {hashedPassword}");
 
-                    this.Close();
+                    LoginChange();
                 }
                 else
                 {
@@ -151,6 +149,9 @@ namespace MatchCards_ClientLogin
                 Invoke(new Action(LoginChange));
                 return;
             }
+
+            TcpClientSingleton.Client.Events.DataReceived -= DataReceived;
+
             var login = new ClientLogin();
             login.Show();
             this.Hide();
