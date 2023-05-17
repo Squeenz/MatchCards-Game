@@ -8,6 +8,8 @@ using ReaLTaiizor.Forms;
 using SuperSimpleTcp;
 using System.Data.SQLite;
 
+//There's not many comments in my code this time because i been focusing majority of my time on the coding.
+//I will eventually comment the code for github.
 namespace MatchCards_Server
 {
     public partial class Server : LostForm
@@ -68,13 +70,28 @@ namespace MatchCards_Server
                     break;
 
                 case "RO":
+                    List<string> onlineUsers = GetOnlineUsers();
+
                     for (int i = 0; i < userList.Items.Count; i++)
                     {
                         string port = userList.Items[i].ToString();
-                        List<string> onlineUsers = GetOnlineUsers();
 
                         string onlineUsersString = String.Join(", ", onlineUsers);
                         server.Send(port, $"[{e.IpPort}]: !R {onlineUsersString}");
+                    }
+                    break;
+
+                case "HR":
+                    List<(string, int)> onlineUsersByPoints = GetUsernamesAndPointsFromDB();
+
+                    for (int i = 0; i < userList.Items.Count; i++)
+                    {
+                        string port = userList.Items[i].ToString();
+
+                        string onlineUsersString = string.Join(", ", onlineUsersByPoints
+                            .Select(userData => $"{userData.Item1} {userData.Item2}"));
+
+                        server.Send(port, $"[{e.IpPort}]: GH {onlineUsersString}");
                     }
                     break;
 
@@ -196,19 +213,14 @@ namespace MatchCards_Server
 
             Random randomPick = new Random();
 
-            // Select two random players
             for (int i = 0; i < 2; i++)
             {
-                // Generate a random index within the range of the list
                 int randomIndex = randomPick.Next(0, list.Count);
 
-                // Get the randomly selected player from the list
                 Dictionary<string, string> selectedPlayer = list[randomIndex];
 
-                // Add the selected player to the twoGamePlayers list
                 twoGamePlayers.Add(selectedPlayer);
 
-                // Remove the selected player from the userInUnrankedQueue list
                 list.RemoveAt(randomIndex);
             }
 
@@ -251,6 +263,27 @@ namespace MatchCards_Server
             return usernames;
         }
 
+        private List<(string username, int points)> GetUsernamesAndPointsFromDB()
+        {
+            conn.Open();
+            string sql = "SELECT Username, Points FROM Users";
+            SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            List<(string username, int points)> users = new List<(string, int)>();
+
+            while (reader.Read())
+            {
+                string username = reader.GetString(0);
+                int points = reader.GetInt32(1);
+                users.Add((username, points));
+            }
+
+            conn.Close();
+
+            users.Sort((x, y) => y.points.CompareTo(x.points));
+
+            return users;
+        }
 
         private void RemoveUserPoints(string username)
         {

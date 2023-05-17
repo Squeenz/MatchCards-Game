@@ -363,7 +363,7 @@
             this.sendServerMessage.Image = null;
             this.sendServerMessage.Location = new System.Drawing.Point(284, 8);
             this.sendServerMessage.Name = "sendServerMessage";
-            this.sendServerMessage.Size = new System.Drawing.Size(50, 34);
+            this.sendServerMessage.Size = new System.Drawing.Size(50, 29);
             this.sendServerMessage.TabIndex = 5;
             this.sendServerMessage.Text = "SEND";
             this.sendServerMessage.Click += new System.EventHandler(this.lostAcceptButton1_Click);

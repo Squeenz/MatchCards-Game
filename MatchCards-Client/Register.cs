@@ -111,8 +111,6 @@ namespace MatchCards_ClientLogin
             if (!string.IsNullOrEmpty(usernameBox.Text) && usernameValid == false)
             {
                 username = usernameBox.Text;
-
-                MessageBox.Show(LoopThroughAllNames(UsernamesList, usernameBox.Text).ToString());
             }
             else 
             {
@@ -137,7 +135,7 @@ namespace MatchCards_ClientLogin
 
                     TcpClientSingleton.Client.Send($"!C [{username.Length}] {username} : {hashedPassword}");
 
-                    LoginChange();
+                    this.Close();
                 }
                 else
                 {

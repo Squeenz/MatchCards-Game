@@ -48,11 +48,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.usernameLabel = new ReaLTaiizor.Controls.CrownLabel();
             this.help = new ReaLTaiizor.Controls.LostLabel();
+            this.lostLabel2 = new ReaLTaiizor.Controls.LostLabel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // chatLabel
@@ -267,11 +272,61 @@
             this.help.Text = "HELP";
             this.help.Click += new System.EventHandler(this.help_Click);
             // 
+            // lostLabel2
+            // 
+            this.lostLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.lostLabel2.ForeColor = System.Drawing.Color.White;
+            this.lostLabel2.Location = new System.Drawing.Point(435, 5);
+            this.lostLabel2.Name = "lostLabel2";
+            this.lostLabel2.Size = new System.Drawing.Size(93, 23);
+            this.lostLabel2.TabIndex = 24;
+            this.lostLabel2.Text = "HIGHSCORE";
+            this.lostLabel2.Click += new System.EventHandler(this.lostLabel2_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkGray;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Username,
+            this.Points});
+            this.dataGridView1.Location = new System.Drawing.Point(638, 36);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.ShowCellErrors = false;
+            this.dataGridView1.ShowCellToolTips = false;
+            this.dataGridView1.ShowEditingIcon = false;
+            this.dataGridView1.ShowRowErrors = false;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 441);
+            this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Username
+            // 
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Points
+            // 
+            this.Points.HeaderText = "Points";
+            this.Points.Name = "Points";
+            this.Points.ReadOnly = true;
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 503);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lostLabel2);
             this.Controls.Add(this.help);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -293,6 +348,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,6 +375,10 @@
         private System.Windows.Forms.Panel panel3;
         private ReaLTaiizor.Controls.CrownLabel usernameLabel;
         private ReaLTaiizor.Controls.LostLabel help;
+        private ReaLTaiizor.Controls.LostLabel lostLabel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Points;
     }
 }
 

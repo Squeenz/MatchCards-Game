@@ -222,8 +222,20 @@ namespace MatchCards_Client
 
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override async void OnFormClosing(FormClosingEventArgs e)
         {
+            try
+            {
+                TcpClientSingleton.Client.Send($"UF {User.Username}");
+                await Task.Delay(1000);
+                TcpClientSingleton.Client.Send($"-- {User.Username} has logged out!");
+            }
+            finally
+            {
+                TcpClientSingleton.Client.Disconnect();
+            }
+
+            await Task.Delay(1000);
             Application.Exit();
         }
     }

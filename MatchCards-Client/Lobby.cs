@@ -21,12 +21,18 @@ namespace MatchCards_Client
             InitializeComponent();
         }
 
+        private bool highscoreShowing;
+
         private async void Game_Load(object sender, EventArgs e)
         {
             clientChatBox.Text += $"Connected To Server... {Environment.NewLine}";
             TcpClientSingleton.Client.Events.DataReceived += DataReceived;
 
             usernameLabel.Text = User.Username;
+
+            await Task.Delay(500);
+
+            TcpClientSingleton.Client.Send("HR");
 
             await Task.Delay(500);
 
@@ -57,11 +63,29 @@ namespace MatchCards_Client
             }
 
             string[] OnlinePlayerNames = usernameList.Split(',');
-            List<string> OnlinePlayers = new List<string>(OnlinePlayerNames);
 
-            for (int i = 0; i < OnlinePlayers.Count(); i++)
+            for (int i = 0; i < OnlinePlayerNames.Count(); i++)
             {
-                onlineUserList.Items.Add(OnlinePlayers.ElementAt(i).Trim());
+                onlineUserList.Items.Add(OnlinePlayerNames.ElementAt(i).Trim());
+            }
+        }
+
+        private void SetHighscoreData(string list)
+        {
+            dataGridView1.Rows.Clear();
+
+            string[] allUsersWithPoints = list.Split(',');
+
+            for (int i = 0; i < allUsersWithPoints.Length; i++)
+            {
+                string[] userSeparatedInfo = allUsersWithPoints[i].Trim().Split(' ');
+
+                if (userSeparatedInfo.Length >= 2)
+                {
+                    string username = userSeparatedInfo[0];
+                    string points = userSeparatedInfo[1];
+                    dataGridView1.Rows.Add(username, points);
+                }
             }
         }
 
@@ -70,7 +94,7 @@ namespace MatchCards_Client
         {
             var data = $"{Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count).Substring(e.IpPort.Length + 5)}{Environment.NewLine}";
             string cmdSyntax = data.Substring(0, 2);
-            string usernameList = data.Substring(3);
+            string list = data.Substring(3);
 
             switch (cmdSyntax) 
             {
@@ -82,7 +106,7 @@ namespace MatchCards_Client
                 case "!O":
                 case "!R":
                 case "!F":
-                    GetOnlinePlayers(usernameList);
+                    GetOnlinePlayers(list);
                     break;
 
                 case "UG":
@@ -95,6 +119,10 @@ namespace MatchCards_Client
                     User.TypeOfGame = "Ranked";
                     SetOpponentData(data);
                     GameChange();
+                    break;
+
+                case "GH":
+                    SetHighscoreData(list);
                     break;
 
                 default:
@@ -200,6 +228,25 @@ namespace MatchCards_Client
         {
             var help = new HelpGuide();
             help.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lostLabel2_Click(object sender, EventArgs e)
+        {
+            if (highscoreShowing == false) 
+            {
+                this.Size = new System.Drawing.Size(887, 503);
+                highscoreShowing = true;
+            }
+            else if (highscoreShowing == true)
+            {
+                this.Size = new System.Drawing.Size(637, 503);
+                highscoreShowing = false;
+            }
         }
     }
 }
